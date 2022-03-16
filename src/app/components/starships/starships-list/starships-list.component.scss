@@ -1,0 +1,22 @@
+@import "../../../../styles/vars.scss";
+
+.overflow {
+    overflow: auto;
+    height  : 80vh;
+}
+
+li {
+    margin: $space-xl;
+}
+
+.card {
+    background-color: $color-grey;
+
+    :hover {
+        background-color: $color-blue;
+    }
+}
+
+.content-card {
+    padding: $space-xl;
+}
