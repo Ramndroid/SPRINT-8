@@ -1,7 +1,7 @@
 <div class="overflow">
     <ul>
-        <li class="card" *ngFor="let starship of starshipsService.starships">
-            <a (click)="depurar(starship.url)">
+        <li class="card" *ngFor="let starship of getStarships()">
+            <a [routerLink]="['/starship', getStarshipID(starship.url)]">
                 <div class="content-card">
                     <p class="f-bold fs-4">{{ starship.name }}</p>
                     <p class="f-regular fs-6">Model: <span class="f-italic">{{ starship.model }}</span></p>

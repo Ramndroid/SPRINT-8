@@ -1,5 +1,6 @@
 import { StarshipsService } from './../../../services/starships/starships.service';
 import { Component } from '@angular/core';
+import { Starship } from 'src/app/interfaces/starship';
 
 @Component({
   selector: 'app-starships-list',
@@ -9,10 +10,14 @@ import { Component } from '@angular/core';
 export class StarshipsListComponent {
 
   constructor(
-    public starshipsService: StarshipsService
+    private starshipsService: StarshipsService
   ) { }
 
-  depurar(texto:string) {
-    console.log(texto);
+  getStarships(): Starship[] {
+    return this.starshipsService.starships;
   }
+  getStarshipID(url: string): string {
+    return this.starshipsService.extractStarshipID(url);
+  }
+
 }

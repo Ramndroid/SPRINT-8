@@ -11,6 +11,7 @@ import { ApiService } from './services/api/api.service';
 import { StarshipsService } from './services/starships/starships.service';
 import { NavBarComponent } from './components/ui/nav-bar/nav-bar.component';
 import { StarshipsComponent } from './pages/starships/starships.component';
+import { StarshipDetailComponent } from './components/starships/starship-detail/starship-detail.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { StarshipsComponent } from './pages/starships/starships.component';
     HomeComponent,
     StarshipsListComponent,
     NavBarComponent,
-    StarshipsComponent
+    StarshipsComponent,
+    StarshipDetailComponent
   ],
   imports: [
     BrowserModule,

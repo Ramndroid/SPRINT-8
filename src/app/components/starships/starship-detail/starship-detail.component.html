@@ -1,0 +1,26 @@
+<img src="https://starwars-visualguide.com/assets/img/starships/{{id}}.jpg" alt="Starship image"
+    onerror="this.src='https:\/\/starwars-visualguide.com/assets/img/big-placeholder.jpg'">
+
+<div class="detail-body">
+    <p>{{ getStarship().name }}</p>
+    <p>{{ getDescription() }}</p>
+
+    <div class="content">
+        <p class="grow">Model: {{ getStarship().model }}</p>
+        <p class="grow">Manufacturer: {{ getStarship().manufacturer }}</p>
+    </div>
+
+    <div class="content">
+        <p class="grow">Cost in credits: {{ getStarship().cost_in_credits }}</p>
+        <p class="grow">Length: {{ getStarship().length }}m</p>
+    </div>
+
+    <div class="content">
+        <p class="grow">Atmospheric Speed: {{ getStarship().max_atmosphering_speed }}</p>
+        <p class="grow">Crew: {{ getStarship().crew }}</p>
+    </div>
+    <div class="content">
+        <button (click)="goBack()">Go back</button>
+    </div>
+
+</div>

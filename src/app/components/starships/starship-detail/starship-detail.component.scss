@@ -1,0 +1,21 @@
+@import "../../../../styles/vars.scss";
+
+button {
+    background-color: $color-blue;
+}
+
+.detail-body {
+    display       : flex;
+    flex-direction: column;
+}
+
+.content {
+    display        : flex;
+    flex-direction : row;
+    justify-content: center;
+}
+
+.grow {
+    flex-grow: 1;
+    width    : 250px;
+}
