@@ -1,6 +1,6 @@
-<div class="overflow">
+<div class="container" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
     <ul>
-        <li class="card" *ngFor="let starship of getStarships()">
+        <li class="card" *ngFor="let starship of starships">
             <a [routerLink]="['/starship', getStarshipID(starship.url)]">
                 <div class="content-card">
                     <p class="f-bold fs-4">{{ starship.name }}</p>

@@ -12,6 +12,7 @@ import { StarshipsService } from './services/starships/starships.service';
 import { NavBarComponent } from './components/ui/nav-bar/nav-bar.component';
 import { StarshipsComponent } from './pages/starships/starships.component';
 import { StarshipDetailComponent } from './components/starships/starship-detail/starship-detail.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { StarshipDetailComponent } from './components/starships/starship-detail/
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule    
+    HttpClientModule,
+    InfiniteScrollModule
   ],
   providers: [
     ApiService,

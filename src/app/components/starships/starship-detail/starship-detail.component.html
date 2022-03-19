@@ -2,22 +2,22 @@
     onerror="this.src='https:\/\/starwars-visualguide.com/assets/img/big-placeholder.jpg'">
 
 <div class="detail-body">
-    <p>{{ getStarship().name }}</p>
-    <p>{{ getDescription() }}</p>
+    <p>{{ starship.name }}</p>
+    <p>{{ description }}</p>
 
     <div class="content">
-        <p class="grow">Model: {{ getStarship().model }}</p>
-        <p class="grow">Manufacturer: {{ getStarship().manufacturer }}</p>
+        <p class="grow">Model: {{ starship.model }}</p>
+        <p class="grow">Manufacturer: {{ starship.manufacturer }}</p>
     </div>
 
     <div class="content">
-        <p class="grow">Cost in credits: {{ getStarship().cost_in_credits }}</p>
-        <p class="grow">Length: {{ getStarship().length }}m</p>
+        <p class="grow">Cost in credits: {{ starship.cost_in_credits }}</p>
+        <p class="grow">Length: {{ starship.length }}m</p>
     </div>
 
     <div class="content">
-        <p class="grow">Atmospheric Speed: {{ getStarship().max_atmosphering_speed }}</p>
-        <p class="grow">Crew: {{ getStarship().crew }}</p>
+        <p class="grow">Atmospheric Speed: {{ starship.max_atmosphering_speed }}</p>
+        <p class="grow">Crew: {{ starship.crew }}</p>
     </div>
     <div class="content">
         <button (click)="goBack()">Go back</button>

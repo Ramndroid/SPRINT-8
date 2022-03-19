@@ -1,3 +1,4 @@
+@import "styles/vars.scss";
 @import "styles/font-style.scss";
 @import "styles/font-size.scss";
 
@@ -13,4 +14,12 @@
 
 body {
     background-color: black;
+}
+
+button {
+    padding: $space-l;
+    margin: 20px;
+    background-color: $color-blue;
+    text-transform: uppercase;
+    font-size: 1.5rem;
 }
