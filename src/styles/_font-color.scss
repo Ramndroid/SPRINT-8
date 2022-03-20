@@ -1,0 +1,19 @@
+@import "_vars.scss";
+
+// COLOR
+.f-white { color: white; }
+
+.f-silver { color: $color-silver; }
+
+.f-yellow { color: $color-yellow; }
+
+// WHITE HOVER
+.f-silver-off {
+    color             : $color-silver;
+    -webkit-transition: color $animation-duration;
+    transition        : color $animation-duration;
+
+    &:hover {
+        color: white;
+    }
+}

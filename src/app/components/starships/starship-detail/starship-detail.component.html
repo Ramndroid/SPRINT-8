@@ -1,26 +1,30 @@
-<img src="https://starwars-visualguide.com/assets/img/starships/{{id}}.jpg" alt="Starship image"
-    onerror="this.src='https:\/\/starwars-visualguide.com/assets/img/big-placeholder.jpg'">
+<app-banner-sub-nav-bar></app-banner-sub-nav-bar>
+<div class="page-container">
+    <img class="w100 starship-img-detail" src="https://starwars-visualguide.com/assets/img/starships/{{id}}.jpg" alt="Starship image"
+        onerror="this.src='https:\/\/starwars-visualguide.com/assets/img/big-placeholder.jpg'">
+    <div class="flex-col mx-10">
+        <h2 class="f-audiowide f-upper f-white fs-4 pt-20 pb-30">{{ starship.name }}</h2>
+        <p class="f-silver fs-6 pb-30">{{ description }}</p>
+        <table class="w100 mb-30">
+            <tr>
+                <td class="starship-td-detail f-white fs-6">Model: <span class="f-silver f-italic">{{ starship.model }}</span></td>
+                <td class="starship-td-detail f-white fs-6">Manufacturer: <span class="f-silver f-italic">{{ starship.manufacturer }}</span></td>
+            </tr>
+            <tr>
+                <td class="starship-td-detail f-white fs-6">Cost in credits: <span class="f-silver f-italic">{{ starship.cost_in_credits }}</span></td>
+                <td class="starship-td-detail f-white fs-6">Length: <span class="f-silver f-italic">{{ starship.length }}m</span></td>
+            </tr>
+            <tr>
+                <td class="starship-td-detail f-white fs-6">Atmospheric Speed: <span class="f-silver f-italic">{{ starship.max_atmosphering_speed }}</span></td>
+                <td class="starship-td-detail f-white fs-6">Crew: <span class="f-silver f-italic">{{ starship.crew }}</span></td>
+            </tr>
+        </table>
 
-<div class="detail-body">
-    <p>{{ starship.name }}</p>
-    <p>{{ description }}</p>
+        <div class="flex-row flex-justify-center">
+            <button class="btn star-hover bg-transparent f-yellow fs-6 m-20" (click)="goBack()">Go back</button>
+        </div>
 
-    <div class="content">
-        <p class="grow">Model: {{ starship.model }}</p>
-        <p class="grow">Manufacturer: {{ starship.manufacturer }}</p>
     </div>
 
-    <div class="content">
-        <p class="grow">Cost in credits: {{ starship.cost_in_credits }}</p>
-        <p class="grow">Length: {{ starship.length }}m</p>
-    </div>
-
-    <div class="content">
-        <p class="grow">Atmospheric Speed: {{ starship.max_atmosphering_speed }}</p>
-        <p class="grow">Crew: {{ starship.crew }}</p>
-    </div>
-    <div class="content">
-        <button (click)="goBack()">Go back</button>
-    </div>
-
+    
 </div>

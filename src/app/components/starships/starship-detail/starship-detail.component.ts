@@ -6,8 +6,7 @@ import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-starship-detail',
-  templateUrl: './starship-detail.component.html',
-  styleUrls: ['./starship-detail.component.scss']
+  templateUrl: './starship-detail.component.html'
 })
 export class StarshipDetailComponent implements OnInit, OnDestroy {
 

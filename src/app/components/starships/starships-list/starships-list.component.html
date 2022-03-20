@@ -1,10 +1,10 @@
-<div class="container" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
+<div class="page-container" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
     <ul>
-        <li class="card" *ngFor="let starship of starships">
+        <li class="star-hover bg-dark mb-30" *ngFor="let starship of starships">
             <a [routerLink]="['/starship', getStarshipID(starship.url)]">
-                <div class="content-card">
-                    <p class="f-bold fs-4">{{ starship.name }}</p>
-                    <p class="f-regular fs-6">Model: <span class="f-italic">{{ starship.model }}</span></p>
+                <div class="p-20 f-silver-off ">
+                    <p class="f-audiowide fs-5 f-upper">{{ starship.name }}</p>
+                    <p class="f-audiowide fs-6 mt-10">{{ starship.model }}</p>
                 </div>
             </a>
         </li>

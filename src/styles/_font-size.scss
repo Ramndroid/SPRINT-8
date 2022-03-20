@@ -1,0 +1,16 @@
+@import "_vars.scss";
+
+@each $size in $font-sizes {
+    $number: index($font-sizes, $size);
+    .fs-#{$number} {
+        font-size: #{$size}rem;
+    }
+}
+
+.fs-8 {
+    letter-spacing: 0.12rem;
+}
+
+.fs-social {
+    font-size: 1.22rem;
+}

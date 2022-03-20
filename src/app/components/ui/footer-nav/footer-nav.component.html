@@ -1,0 +1,7 @@
+<p>footer-nav works!</p>
+
+<ul class="flex-row flex-wrap flex-center">
+    <li *ngFor="let link of footerLinks" class="terms">
+        <a href="{{link.url}}" target="_blank" class="f-silver fs-8">{{link.title}}</a>
+    </li>
+</ul>

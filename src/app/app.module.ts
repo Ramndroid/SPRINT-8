@@ -13,6 +13,12 @@ import { NavBarComponent } from './components/ui/nav-bar/nav-bar.component';
 import { StarshipsComponent } from './pages/starships/starships.component';
 import { StarshipDetailComponent } from './components/starships/starship-detail/starship-detail.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { FooterComponent } from './components/ui/footer/footer.component';
+import { BannerSubNavBarComponent } from './components/ui/banner-sub-nav-bar/banner-sub-nav-bar.component';
+import { SocialComponent } from './components/ui/social/social.component';
+import { FooterNavComponent } from './components/ui/footer-nav/footer-nav.component';
+import { NavBarTabsComponent } from './components/ui/nav-bar-tabs/nav-bar-tabs.component';
+import { NavBarLoginComponent } from './components/ui/nav-bar-login/nav-bar-login.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +27,13 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     StarshipsListComponent,
     NavBarComponent,
     StarshipsComponent,
-    StarshipDetailComponent
+    StarshipDetailComponent,
+    FooterComponent,
+    BannerSubNavBarComponent,
+    SocialComponent,
+    FooterNavComponent,
+    NavBarTabsComponent,
+    NavBarLoginComponent
   ],
   imports: [
     BrowserModule,

@@ -5,8 +5,7 @@ import { Starship } from 'src/app/interfaces/starship';
 
 @Component({
   selector: 'app-starships-list',
-  templateUrl: './starships-list.component.html',
-  styleUrls: ['./starships-list.component.scss']
+  templateUrl: './starships-list.component.html'
 })
 export class StarshipsListComponent implements OnInit {
 

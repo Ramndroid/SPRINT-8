@@ -1,25 +1,34 @@
-@import "styles/vars.scss";
-@import "styles/font-style.scss";
-@import "styles/font-size.scss";
+@import "styles/_background.scss";
+@import "styles/_buttons.scss";
+@import "styles/_component-banner-subnavbar.scss";
+@import "styles/_component-footer-terms";
+@import "styles/_component-nav-bar-login.scss";
+@import "styles/_component-nav-bar-tabs.scss";
+@import "styles/_component-nav-bar.scss";
+@import "styles/_component-starship-detail.scss";
+@import "styles/_container.scss";
+@import "styles/_flex.scss";
+@import "styles/_font-color.scss";
+@import "styles/_font-family.scss";
+@import "styles/_font-size.scss";
+@import "styles/_font-style.scss";
+@import "styles/_font-weight.scss";
+@import "styles/_margin-padding.scss";
+@import "styles/_sizing.scss";
+@import "styles/_text-utils.scss";
+
 
 * {
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    list-style: none;
+    font-family    : 'Roboto', sans-serif;
+    list-style     : none;
     text-decoration: none;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    box-sizing     : border-box;
+    margin         : 0;
+    padding        : 0;
+
 }
 
 body {
     background-color: black;
 }
 
-button {
-    padding: $space-l;
-    margin: 20px;
-    background-color: $color-blue;
-    text-transform: uppercase;
-    font-size: 1.5rem;
-}

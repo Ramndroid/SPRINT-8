@@ -41,24 +41,10 @@ export class StarshipsService {
 
   getEmptyStarship(): Starship {
     return {
-      name: "",
-      model: "",
-      manufacturer: "",
-      cost_in_credits: "",
-      length: "",
-      max_atmosphering_speed: "",
-      crew: "",
-      passengers: "",
-      cargo_capacity: "",
-      consumables: "",
-      hyperdrive_rating: "",
-      MGLT: "",
-      starship_class: "",
-      pilots: [],
-      films: [],
-      created: "",
-      edited: "",
-      url: ""
+      name: "", model: "", manufacturer: "", cost_in_credits: "",
+      length: "", max_atmosphering_speed: "", crew: "", passengers: "",
+      cargo_capacity: "", consumables: "", hyperdrive_rating: "", MGLT: "",
+      starship_class: "", pilots: [], films: [], created: "", edited: "", url: ""
     };
   }
 
