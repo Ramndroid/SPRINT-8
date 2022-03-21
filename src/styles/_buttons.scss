@@ -1,20 +1,20 @@
 @import "_vars.scss";
 
 .btn {
-    width             : 200px;
-    height            : 40px;
-    margin            : 0 0 4% 0;
+    width             : $btn-width;
+    height            : $btn-height;
+    margin            : $btn-margin;
     text-shadow       : none;
 }
 
 .star-hover {
     border-radius     : $border-thick;
-    border            : 1px solid transparent;
+    border            : $border-thin solid transparent;
     -webkit-transition: border $animation-duration;
     transition        : border $animation-duration;
 
     &:hover {
         border-radius: $border-thick;
-        border       : 1px solid $color-yellow;
+        border       : $border-thin solid $color-yellow;
     }
 }

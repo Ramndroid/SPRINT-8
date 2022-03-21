@@ -1,11 +1,13 @@
 @import "styles/_background.scss";
 @import "styles/_buttons.scss";
-@import "styles/_component-banner-subnavbar.scss";
-@import "styles/_component-footer-terms";
-@import "styles/_component-nav-bar-login.scss";
-@import "styles/_component-nav-bar-tabs.scss";
-@import "styles/_component-nav-bar.scss";
+@import "styles/_component-footer-nav.scss";
+@import "styles/_component-footer.scss";
+@import "styles/_component-navbar-brand.scss";
+@import "styles/_component-navbar-login.scss";
+@import "styles/_component-navbar-tabs.scss";
+@import "styles/_component-navbar.scss";
 @import "styles/_component-starship-detail.scss";
+@import "styles/_component-subpage.scss";
 @import "styles/_container.scss";
 @import "styles/_flex.scss";
 @import "styles/_font-color.scss";
@@ -17,18 +19,15 @@
 @import "styles/_sizing.scss";
 @import "styles/_text-utils.scss";
 
-
 * {
-    font-family    : 'Roboto', sans-serif;
-    list-style     : none;
-    text-decoration: none;
-    box-sizing     : border-box;
-    margin         : 0;
-    padding        : 0;
-
+    font-family     : 'Roboto', sans-serif;
+    list-style      : none;
+    text-decoration : none;
+    box-sizing      : border-box;
+    margin          : 0;
+    padding         : 0;
 }
 
 body {
     background-color: black;
 }
-

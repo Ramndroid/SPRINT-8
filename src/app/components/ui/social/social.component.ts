@@ -13,5 +13,5 @@ export class SocialComponent {
     "https://www.youtube.com/user/starwars"
   ];
 
-  // constructor() { }
+  constructor() { }
 }

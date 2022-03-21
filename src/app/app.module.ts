@@ -11,14 +11,15 @@ import { ApiService } from './services/api/api.service';
 import { StarshipsService } from './services/starships/starships.service';
 import { NavBarComponent } from './components/ui/nav-bar/nav-bar.component';
 import { StarshipsComponent } from './pages/starships/starships.component';
-import { StarshipDetailComponent } from './components/starships/starship-detail/starship-detail.component';
+import { StarshipDetailComponent } from './pages/starship-detail/starship-detail.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { FooterComponent } from './components/ui/footer/footer.component';
-import { BannerSubNavBarComponent } from './components/ui/banner-sub-nav-bar/banner-sub-nav-bar.component';
 import { SocialComponent } from './components/ui/social/social.component';
 import { FooterNavComponent } from './components/ui/footer-nav/footer-nav.component';
 import { NavBarTabsComponent } from './components/ui/nav-bar-tabs/nav-bar-tabs.component';
 import { NavBarLoginComponent } from './components/ui/nav-bar-login/nav-bar-login.component';
+import { SubpageComponent } from './components/ui/subpage/subpage.component';
+import { NavBarBrandComponent } from './components/ui/nav-bar-brand/nav-bar-brand.component';
 
 @NgModule({
   declarations: [
@@ -29,11 +30,12 @@ import { NavBarLoginComponent } from './components/ui/nav-bar-login/nav-bar-logi
     StarshipsComponent,
     StarshipDetailComponent,
     FooterComponent,
-    BannerSubNavBarComponent,
     SocialComponent,
     FooterNavComponent,
     NavBarTabsComponent,
-    NavBarLoginComponent
+    NavBarLoginComponent,
+    SubpageComponent,
+    NavBarBrandComponent
   ],
   imports: [
     BrowserModule,

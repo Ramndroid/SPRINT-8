@@ -1,52 +1,51 @@
-$color-silver:         #aaaaaa;
+$color-silver                : #aaaaaa;
+$color-grey                  : #ffffff2f;
+$color-dark-grey             : #343434; // usado en '//' de login
+$color-dark                  : #181818;
+$color-subpage               : #0a0b0b;
+$color-blue                  : #1b6edd;
+$color-yellow                : #edd700;
+$color-magenta               : #9d5061;
 
-$color-grey:           #ffffff2f;
+$height-tabs-navbar          : 39px;
+$height-subpage-link         : 49px;
+$height-subpage              : 222px;
+$height-footer               : 272px;
 
-$color-dark:           #181818;
+$page-container-width        : 70%;
+$page-container-margin       : 40px auto 50px auto;
 
-$color-banner-sub-nav: #0a0b0b;
+$img-navbar-vertical         : url("../assets/img/sw-logo.svg");
+$img-footer                  : url("../assets/img/vader.jpg");
 
-$color-blue:           #1b6edd;
+$btn-width                   : 200px;
+$btn-height                  : 40px;
+$btn-margin                  : 0 0 4% 0;
 
-$color-yellow:         #edd700;
+$border-grey                 : 1px solid $color-grey;
+$border-thick                : 2px;
+$border-thin                 : 1px;
 
-$color-magenta:        #9d5061;
+$animation-duration          : 350ms;
+$animation-border-color-terms: 200ms;
+$animation-width-terms       : 250ms;
 
-$height-tabs-navbar:     44px;
-
-$border-grey:            1px solid $color-grey;
-
-$border-thick:           3px;
-
-$animation-duration:     350ms;
-
-$font-sizes: (          //in rem
-                         '4',    // fs-1 
-                         '3',    // fs-2
-                         '2',    // fs-3
-                         '1.8',  // fs-4
-                         '1.5',  // fs-5
-                         '1',    // fs-6
-                         '0.8',  // fs-7
-                         '0.7'   // fs-8
-);
-
-$font-thin:               100;
-
-$font-regular:            400;
-
-$font-bold:               700;
-
-$margin-padding-sizes: ( //in px
-                           0,
-                           1,
-                           2,
-                           5,
-                           9,
-                           10,
-                           20,
-                           30
-
-);
-
-
+$font-thin                   : 100;
+$font-regular                : 400;
+$font-bold                   : 700;
+$font-sizes                  : ( //in rem
+                               '0.875',   // fs-1 Navbar y footer
+                               '1',       // fs-2 modelo de nave en lista starships | textos detalles starship
+                               '1.5',     // fs-3 titulo nave en lista starships
+                               '1.8');    // fs-4 titulo nave detalle starship
+                               
+$margin-padding-sizes        : ( //in px
+                               0,
+                               2,         // footer-nav
+                               9,         // pestañas navbar | espacio iconos sociales
+                               10,        // login | lista starships | detalle starship
+                               19,        // logo padding bottom
+                               20,        // navbar | footer | lista starships | detalle starship
+                               23,        // logo padding top
+                               30,        // footer | lista starships | detalle starship
+                               42);       // footer margin bottom

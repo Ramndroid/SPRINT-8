@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BannerSubNavBarComponent } from './banner-sub-nav-bar.component';
+import { SubpageComponent } from './subpage.component';
 
-describe('BannerSubNavBarComponent', () => {
-  let component: BannerSubNavBarComponent;
-  let fixture: ComponentFixture<BannerSubNavBarComponent>;
+describe('SubpageComponent', () => {
+  let component: SubpageComponent;
+  let fixture: ComponentFixture<SubpageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BannerSubNavBarComponent ]
+      declarations: [ SubpageComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BannerSubNavBarComponent);
+    fixture = TestBed.createComponent(SubpageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

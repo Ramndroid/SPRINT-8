@@ -1,9 +1,6 @@
+@import "_vars.scss";
+
 .page-container {
-    width: 70%;
-    margin: 40px auto 50px auto;
+    width : $page-container-width;
+    margin: $page-container-margin;
 }
-
-
-
-
-

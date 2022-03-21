@@ -1,7 +1,7 @@
-import { StarshipsService } from './../../../services/starships/starships.service';
+import { StarshipsService } from '../../services/starships/starships.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Starship } from '../../../interfaces/starship';
+import { Starship } from '../../interfaces/starship';
 import { Subscription } from 'rxjs';
 
 @Component({

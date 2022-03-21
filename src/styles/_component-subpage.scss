@@ -1,0 +1,11 @@
+@import "_vars.scss";
+
+.subpage-container {
+    height          : $height-subpage;
+}
+
+.subpage-link {
+    height          : $height-subpage-link;
+    background-color: $color-subpage;
+    border-top      : $border-grey;
+}

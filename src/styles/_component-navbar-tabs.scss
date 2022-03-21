@@ -1,19 +1,19 @@
 @import "_vars.scss";
 
 .nav-bar-tabs {
-    height          : $height-tabs-navbar;
-    border-top      : $border-grey;
+    height            : $height-tabs-navbar;
+    border-top        : $border-grey;
 }
 
 .nav-bar-tabs > li {
 
     &:nth-child(1) {
-        border-left: $border-grey;
+        border-left   : $border-grey;
     }
 
     &:nth-child(2) {
-        border-left : $border-grey;
-        border-right: $border-grey;
+        border-left   : $border-grey;
+        border-right  : $border-grey;
     }
 }
 

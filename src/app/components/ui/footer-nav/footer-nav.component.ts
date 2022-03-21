@@ -16,7 +16,6 @@ export class FooterNavComponent {
     {title: "Star Wars Helpdesk", url: "https://support.starwars.com/hc/es-es"},
     {title: "Interest-Based Ads", url: "https://preferences-mgr.truste.com/?type=starwars&affiliateId=115"},
     {title: "Do Not Sell My Personal Information", url: "https://privacyportal-de.onetrust.com/webform/64f077b5-2f93-429f-a005-c0206ec0738e/0a4f1f0b-7130-421f-971d-ef578c0bce6d"},
-
   ]
 
   constructor() { }

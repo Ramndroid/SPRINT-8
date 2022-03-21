@@ -1,10 +1,11 @@
-<div class="page-container" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
+<div class="page-container" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
+    (scrolled)="onScroll()">
     <ul>
         <li class="star-hover bg-dark mb-30" *ngFor="let starship of starships">
             <a [routerLink]="['/starship', getStarshipID(starship.url)]">
-                <div class="p-20 f-silver-off ">
-                    <p class="f-audiowide fs-5 f-upper">{{ starship.name }}</p>
-                    <p class="f-audiowide fs-6 mt-10">{{ starship.model }}</p>
+                <div class="fc-silver-off p-20">
+                    <p class="ff-audiowide fs-3 t-upper">{{ starship.name }}</p>
+                    <p class="ff-audiowide fs-2 mt-10">{{ starship.model }}</p>
                 </div>
             </a>
         </li>

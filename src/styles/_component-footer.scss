@@ -1,0 +1,9 @@
+@import "_vars.scss";
+
+.footer {
+    height                : $height-footer;
+    background-color      : #000000;
+    background-image      : $img-footer;
+    background-position   : center top;
+    background-repeat     : no-repeat;
+}

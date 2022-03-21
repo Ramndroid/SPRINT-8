@@ -1,0 +1,44 @@
+@import "_vars.scss";
+
+.legal {
+    width                 : 90%;
+    margin                : 0 auto;
+}
+
+.terms {
+    display               : inline;
+}
+
+.terms:not(:first-child) {
+    &:before {
+        content           : " | ";
+        font-weight       : $font-bold;
+        padding           : 0px 10px;
+        color             : $color-silver;
+    }
+}
+
+.terms-link {
+    display               : inline-block;
+    height                : 16px;
+    width                 : auto;
+
+    &:after {
+
+        content           : "";
+        display           : block;
+        width             : 40%;
+        margin            : 0 auto;
+        opacity           : 0.9;
+        padding-bottom    : 2px;
+        border-bottom     : $border-thin solid transparent;
+        -webkit-transition: border-color $animation-border-color-terms, width $animation-width-terms;
+        -moz-transition   : border-color $animation-border-color-terms, width $animation-width-terms;
+        transition        : border-color $animation-border-color-terms, width $animation-width-terms;
+    }
+
+    &:hover:after {
+        width              : 100%;
+        border-bottom-color: #CCCCCC
+    }
+}
