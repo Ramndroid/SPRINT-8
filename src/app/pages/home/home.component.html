@@ -1,3 +1,43 @@
-<app-subpage></app-subpage>
+<div class="subpage-container w100 flex-col flex-bottom-center">
 
-<div class="page-container"></div>
+    <div class="subpage-link w100 flex-row flex-center gap-m">
+        <a class="t-upper fc-silver-off fs-1" routerLink="" (click)="loadEpisode(0)">I</a>
+        <a class="t-upper fc-silver-off fs-1" routerLink="" (click)="loadEpisode(1)">II</a>
+        <a class="t-upper fc-silver-off fs-1" routerLink="" (click)="loadEpisode(2)">III</a>
+        <a class="t-upper fc-silver-off fs-1" routerLink="" (click)="loadEpisode(3)">IV</a>
+        <a class="t-upper fc-silver-off fs-1" routerLink="" (click)="loadEpisode(4)">V</a>
+        <a class="t-upper fc-silver-off fs-1" routerLink="" (click)="loadEpisode(5)">VI</a>
+        <a class="t-upper fc-silver-off fs-1" routerLink="" (click)="loadEpisode(6)">VII</a>
+        <a class="t-upper fc-silver-off fs-1" routerLink="" (click)="loadEpisode(7)">VIII</a>
+        <a class="t-upper fc-silver-off fs-1" routerLink="" (click)="loadEpisode(8)">IX</a>
+    </div>
+
+</div>
+
+<!-- Place in Body where you'd like intro to appear -->
+<div #crawlmain class="star-wars-intro">
+
+    <!-- Blue Intro Text -->
+    <p #crawlintro class="intro-text" style="text-align: left;">{{ intro }}</p>
+
+    <!-- Logo Image or Text goes in here -->
+    <h2 #crawllogo class="main-logo"><img src="../../../assets/img/sw-yellow-logo.svg"></h2>
+
+    <!-- All Scrolling Content Goes in here -->
+    <div #crawlcontent class="main-content">
+        <div class="title-content">
+            <p class="content-header">{{ openings[indexEpisode].episode }}<br />{{ openings[indexEpisode].title }}</p>
+            <br>
+            <br>
+            <p class="content-body">{{ openings[indexEpisode].paragraph1 }}</p>
+            <br>
+            <p class="content-body">{{ openings[indexEpisode].paragraph2 }}</p>
+            <br>
+            <p class="content-body">{{ openings[indexEpisode].paragraph3 }}</p>
+            <br>
+            <br>
+            <a routerLink="/starships" class="space-button">Go to Starships</a>
+        </div>
+    </div>
+
+</div>
