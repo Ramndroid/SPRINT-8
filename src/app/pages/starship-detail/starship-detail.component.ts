@@ -33,6 +33,8 @@ export class StarshipDetailComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
+    
     this.starshipsService.getStarshipByID(this.id);
 
     this.starship$ = this.starshipsService.getStarship$()

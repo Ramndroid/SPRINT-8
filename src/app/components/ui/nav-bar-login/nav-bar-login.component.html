@@ -1,16 +1,30 @@
- <nav class="nav-bar-sign f-bold fs-1 t-upper">  
+<nav class="nav-bar-sign f-bold fs-1 t-upper">
 
-    <ul class="flex-row gap-s p-10">
-        
-        <li>
-            <p class="fc-silver-off">log in</p>
-        </li>
+    <ul class="flex-rows gap-xs p-10" style="display: inline;">
 
-        <p class="fc-dark-grey fs-login-dec">/ /</p>
+        <ng-container *ngIf="isUserLoged == true else logged">
+            <li style="display: inline;">
+                <a class="fc-silver-off pointer me-9" (click)="alertUserInfo()">{{ userName }}</a>
+            </li>
 
-        <li>
-            <p class="fc-silver-off">sign up</p>
-        </li>
+            <p class="fc-dark-grey fs-login-dec" style="display: inline;">/ /</p>
+
+            <li style="display: inline;"> 
+                <a class="fc-silver-off pointer ms-9" (click)="logOut()">Close</a>
+            </li>
+        </ng-container>
+
+        <ng-template #logged>
+            <li style="display: inline;">
+                <a class="fc-silver-off pointer me-9" (click)="openLogInDialog()">log in</a>
+            </li>
+
+            <p class="fc-dark-grey fs-login-dec"  style="display: inline;">/ /</p>
+
+            <li style="display: inline;">
+                <a class="fc-silver-off pointer ms-9" (click)="openSignUpDialog()">sign up</a>
+            </li>
+        </ng-template>
 
     </ul>
 

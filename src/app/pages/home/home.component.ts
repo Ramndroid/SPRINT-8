@@ -6,8 +6,8 @@ import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 })
 export class HomeComponent {
 
-  intro: string = "Ha arribat, s'acosta el final de curs...";
-  indexEpisode: number = 9;
+  intro: string;
+  indexEpisode: number = 0;
 
   @ViewChild('crawlmain')
   crawlmain!: ElementRef;
@@ -87,7 +87,7 @@ export class HomeComponent {
     },
     {
       episode: "Sprint 8",
-      title:"Aquest és el darrer sprint de l'itinerari d'Angular",
+      title: "Aquest és el darrer sprint de l'itinerari d'Angular",
       paragraph1: "Han estat unes setmanes intenses, amb reptes constants i moltes novetats...",
       paragraph2: "Abans que s'acabi el curs, vull donar-te les gràcies, Albert, per aquestes tardes compartides, pel teu suport i per tot allò que he après.",
       paragraph3: "Has fet que tot sigui més agradable, i m'has donat l'empenta per créixer i continuar. Que la força d'acompanyi!",
@@ -97,13 +97,17 @@ export class HomeComponent {
 
   loadEpisode(episode: number) {
     this.indexEpisode = episode;
-    this.intro = "A long time ago in a galaxy far, far away..."
+    if (episode == 9) {
+      this.intro = "Ha arribat, s'acosta el final de curs i de la mentoria...";
+    } else {
+      this.intro = "A long time ago in a galaxy far, far away...";
+    }
     this.reloadAnimation();
   }
 
   private reloadAnimation() {
-    this.renderer.removeClass(this.crawlmain.nativeElement, 'star-wars-intro');    
-    this.renderer.removeClass(this.crawlintro.nativeElement, 'intro-text');    
+    this.renderer.removeClass(this.crawlmain.nativeElement, 'star-wars-intro');
+    this.renderer.removeClass(this.crawlintro.nativeElement, 'intro-text');
     this.renderer.removeClass(this.crawllogo.nativeElement, 'main-logo');
     this.renderer.removeClass(this.crawlcontent.nativeElement, 'main-content');
 
@@ -123,7 +127,11 @@ export class HomeComponent {
 
   constructor(
     private renderer: Renderer2
-  ) { }
+  ) {
+    this.intro = "A long time ago in a galaxy far, far away...";
+    this.indexEpisode = 0;
+    window.scrollTo(0, 0);
+  }
 }
 
 interface OpeningCrawl {

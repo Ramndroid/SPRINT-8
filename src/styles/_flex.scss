@@ -12,6 +12,10 @@
     justify-content: center;
 }
 
+.flex-justify-end {
+    justify-content: end;
+}
+
 .flex-align-items-baseline {
     align-items: baseline;
 }
@@ -26,13 +30,13 @@
     align-items    : center;
 }
 
-.flex-bottom-center {
-    justify-content: end;
-    align-items    : center;
-}
 
 .flex-wrap {
     flex-wrap: wrap;
+}
+
+.gap-xs {
+    gap: 6px;
 }
 
 .gap-s {

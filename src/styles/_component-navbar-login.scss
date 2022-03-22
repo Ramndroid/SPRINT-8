@@ -1,5 +1,11 @@
 .nav-bar-sign {
     position    : absolute;
     right       : 10px;
-    top         : 64px;
+    top         : 73px;
+}
+
+@media (max-width: 899px) {
+    .nav-bar-sign {
+        visibility: hidden;
+    }
 }

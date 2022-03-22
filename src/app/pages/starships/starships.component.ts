@@ -5,5 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './starships.component.html'
 })
 export class StarshipsComponent {
-  constructor() { }
+  constructor() { 
+    window.scrollTo(0, 0);
+  }
 }

@@ -1,0 +1,24 @@
+@import "_vars.scss";
+
+.signup {
+    max-width: 540px;
+}
+
+.signup-logo {
+    content: url("../assets/img/sw-login.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 70%;
+    height: auto;
+    margin-top: -5px;
+}
+
+.signup-input {
+    &:focus {
+        background-color: $color-grey;
+        border-color    : $color-yellow;
+        color           : $color-yellow;
+        height          : $btn-height;
+    }
+}
+

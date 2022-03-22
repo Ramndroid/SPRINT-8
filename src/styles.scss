@@ -1,5 +1,6 @@
 @import "styles/_background.scss";
 @import "styles/_buttons.scss";
+@import "styles/_component-dialog-users.scss";
 @import "styles/_component-footer-nav.scss";
 @import "styles/_component-footer.scss";
 @import "styles/_component-navbar-brand.scss";
@@ -20,15 +21,24 @@
 @import "styles/star-wars-intro.scss";
 @import "styles/_text-utils.scss";
 
+@font-face {
+    font-family: starwars;
+    src        : url("assets/fonts/DINNextW01Regular.otf");
+}
+
 * {
-    font-family    : 'Roboto', sans-serif;
     list-style     : none;
     text-decoration: none;
     box-sizing     : border-box;
     margin         : 0;
     padding        : 0;
+    font-family      : "starwars", 'Roboto', sans-serif;
 }
 
 body {
     background-color: black;
 }
+
+// html, body { height: 100%; }
+
+

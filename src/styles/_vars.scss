@@ -1,16 +1,20 @@
-$color-silver                : #aaaaaa;
+$color-white                 : #ffffff;
+$color-silver-light          : #cccccc; // footer
+$color-silver                : #999999;
 $color-grey                  : #ffffff2f;
-$color-dark-grey             : #343434; // usado en '//' de login
+$color-grey-solid            : #484848;
+$color-dark-grey             : #3d3d3d; // usado en '//' de login
 $color-dark                  : #181818;
 $color-subpage               : #0a0b0b;
 $color-blue                  : #1b6edd;
+$color-blue-hover            : #3f6dac;
 $color-yellow                : #edd700;
 $color-magenta               : #9d5061;
 
 $height-tabs-navbar          : 39px;
 $height-subpage-link         : 49px;
-$height-subpage              : 222px;
-$height-footer               : 272px;
+$height-subpage              : 224px;//222
+$height-footer               : 320px;//272
 
 $page-container-width        : 70%;
 $page-container-margin       : 40px auto 50px auto;
@@ -34,18 +38,21 @@ $font-thin                   : 100;
 $font-regular                : 400;
 $font-bold                   : 700;
 $font-sizes                  : ( //in rem
-                               '0.875',   // fs-1 Navbar y footer
+                               '0.9',   // fs-1 Navbar y footer
                                '1',       // fs-2 modelo de nave en lista starships | textos detalles starship
                                '1.5',     // fs-3 titulo nave en lista starships
                                '1.8');    // fs-4 titulo nave detalle starship
                                
 $margin-padding-sizes        : ( //in px
                                0,
-                               2,         // footer-nav
+                               2, 
+                               4,        // footer-nav
+                               7,         // btn-laser
                                9,         // pestañas navbar | espacio iconos sociales
                                10,        // login | lista starships | detalle starship
                                19,        // logo padding bottom
                                20,        // navbar | footer | lista starships | detalle starship
                                23,        // logo padding top
                                30,        // footer | lista starships | detalle starship
-                               42);       // footer margin bottom
+                               42,        // footer margin bottom
+                               50);       

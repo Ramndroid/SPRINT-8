@@ -20,6 +20,14 @@ import { NavBarTabsComponent } from './components/ui/nav-bar-tabs/nav-bar-tabs.c
 import { NavBarLoginComponent } from './components/ui/nav-bar-login/nav-bar-login.component';
 import { SubpageComponent } from './components/ui/subpage/subpage.component';
 import { NavBarBrandComponent } from './components/ui/nav-bar-brand/nav-bar-brand.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatDialogModule } from '@angular/material/dialog';
+import { UserDialogComponent } from './components/dialogs/user-dialog/user-dialog.component';
+import { StorageService } from './services/storage/storage.service';
+import { UsersService } from './services/users/users.service';
+
 
 @NgModule({
   declarations: [
@@ -35,17 +43,25 @@ import { NavBarBrandComponent } from './components/ui/nav-bar-brand/nav-bar-bran
     NavBarTabsComponent,
     NavBarLoginComponent,
     SubpageComponent,
-    NavBarBrandComponent
+    NavBarBrandComponent,
+    UserDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule
+    
   ],
   providers: [
     ApiService,
-    StarshipsService
+    StarshipsService,
+    StorageService,
+    UsersService
   ],
   bootstrap: [AppComponent]
 })

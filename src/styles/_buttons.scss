@@ -1,10 +1,30 @@
 @import "_vars.scss";
 
+.pointer {
+    cursor: pointer;
+}
+
 .btn {
-    width             : $btn-width;
-    height            : $btn-height;
-    margin            : $btn-margin;
-    text-shadow       : none;
+    width      : $btn-width;
+    height     : $btn-height;
+    margin     : $btn-margin;
+    text-shadow: none;
+}
+
+.btn-star {
+    height     : $btn-height;
+    margin     : $btn-margin;
+    border-radius     : $border-thick;
+    border            : $border-thin solid transparent;
+    -webkit-transition: border $animation-duration;
+    transition        : border $animation-duration;
+    background-color: transparent;
+    color: $color-yellow;
+
+    &:hover {
+        border-radius: $border-thick;
+        border       : $border-thin solid $color-yellow;
+    }
 }
 
 .star-hover {
@@ -18,3 +38,46 @@
         border       : $border-thin solid $color-yellow;
     }
 }
+
+
+.btn-grey {
+    height            : $btn-height;
+    margin            : $btn-margin;
+    text-shadow       : none;
+    background-color  : $color-grey-solid;
+    color             : $color-white;
+    border-radius     : $border-thick;
+    border            : $border-thin solid transparent;
+    -webkit-transition: background-color $animation-duration;
+    transition        : background-color $animation-duration;
+
+    &:hover {
+        background-color: $color-blue-hover;
+    }
+
+    &:disabled {
+        background-color  : $color-grey-solid;
+    }
+}
+
+.btn-laser {
+    width              : 45px !important;
+    height             : 45px !important;
+    background-image   : url("../assets/img/btn-laser.png") !important;
+    background-position: top !important;
+    background-color   : transparent !important;
+    opacity            : 0.2 !important;
+    -webkit-transition : opacity 200ms !important;
+    transition         : opacity 200ms !important;
+    transform          : scale(0.9) !important;
+    border             : none !important;
+    border: 2px solid white;
+
+    &:hover {
+        opacity           : 1 !important;
+        -webkit-transition: opacity 200ms !important;
+        transition        : opacity 200ms !important;
+    }
+
+}
+

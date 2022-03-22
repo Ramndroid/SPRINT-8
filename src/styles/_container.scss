@@ -4,3 +4,9 @@
     width : $page-container-width;
     margin: $page-container-margin;
 }
+
+@media (min-width: 1414px) {
+    .page-container {
+        width: 990px;
+    }
+}

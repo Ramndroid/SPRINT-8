@@ -1,10 +1,31 @@
 .nav-bar {
     position: fixed;
     top     : 0;
+    z-index : 10;
+    margin  : 0 auto;
 }
 
 .nav-bar-social {
     position: absolute;
     left    : 10px;
     top     : 18px;
+}
+
+@media (max-width: 899px) {
+    .nav-bar-social {
+        visibility: hidden;
+    }
+}
+
+.nav-bar-container {
+    display : flex;
+    width   : 100%;
+    margin  : 0 auto;
+    position: relative;
+}
+
+@media (min-width: 1414px) {
+    .nav-bar-container {
+        width: 1414px;
+    }
 }

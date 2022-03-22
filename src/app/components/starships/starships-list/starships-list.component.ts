@@ -20,6 +20,7 @@ export class StarshipsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPagesOfStarships();
+    // window.scrollTo(100, 100);
   }
 
   onScroll(): void {
