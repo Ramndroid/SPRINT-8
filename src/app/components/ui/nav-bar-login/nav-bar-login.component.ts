@@ -4,6 +4,7 @@ import { UserDialogComponent } from '../../dialogs/user-dialog/user-dialog.compo
 import { UsersService } from '../../../services/users/users.service';
 import { Subscription } from 'rxjs';
 import { User } from '../../../interfaces/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar-login',
@@ -19,7 +20,8 @@ export class NavBarLoginComponent implements OnInit, OnDestroy {
 
   constructor(
     public dialog: MatDialog,
-    private users: UsersService
+    private users: UsersService,
+    private router: Router
   ) {
     this.isUserLoged$ = new Subscription;
     this.userName = "";
@@ -87,6 +89,7 @@ export class NavBarLoginComponent implements OnInit, OnDestroy {
 
   logOut() {
     this.users.logOut();
+    this.router.navigate(['/']);
   }
 
 }

@@ -50,6 +50,15 @@ export class UsersService {
     return null;
   }
 
+  isRegisteredUser(): boolean {
+    const user = this.storage.getFromLocalStorage(StorageService.CURRENTUSER);
+    if (typeof user === 'string') {
+        return true;
+    } else {
+      return false;
+    }
+  }
+
   getIsUserLoged$(): Observable<boolean> {
     return this.isUserLoged$.asObservable();
   }

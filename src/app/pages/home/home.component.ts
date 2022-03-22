@@ -1,5 +1,20 @@
 import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 
+
+
+
+interface OpeningCrawl {
+  episode: string;
+  title: string;
+  paragraph1: string;
+  paragraph2: string;
+  paragraph3: string;
+  paragraph4?: string;
+}
+
+
+
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html'
@@ -20,6 +35,44 @@ export class HomeComponent {
 
   @ViewChild('crawlcontent')
   crawlcontent!: ElementRef;
+
+  constructor(
+    private renderer: Renderer2
+  ) {
+    this.intro = "A long time ago in a galaxy far, far away...";
+    this.indexEpisode = 0;
+    window.scrollTo(0, 0);
+  }
+
+  loadEpisode(episode: number) {
+    this.indexEpisode = episode;
+    if (episode == 9) {
+      this.intro = "Ha arribat, s'acosta el final de curs i de la mentoria...";
+    } else {
+      this.intro = "A long time ago in a galaxy far, far away...";
+    }
+    this.reloadAnimation();
+  }
+
+  private reloadAnimation() {
+    this.renderer.removeClass(this.crawlmain.nativeElement, 'star-wars-intro');
+    this.renderer.removeClass(this.crawlintro.nativeElement, 'intro-text');
+    this.renderer.removeClass(this.crawllogo.nativeElement, 'main-logo');
+    this.renderer.removeClass(this.crawlcontent.nativeElement, 'main-content');
+
+    this.renderer.removeChild(this.crawlmain.nativeElement, this.crawlintro.nativeElement);
+    this.renderer.removeChild(this.crawlmain.nativeElement, this.crawllogo.nativeElement);
+    this.renderer.removeChild(this.crawlmain.nativeElement, this.crawlcontent.nativeElement);
+
+    this.renderer.appendChild(this.crawlmain.nativeElement, this.crawlintro.nativeElement);
+    this.renderer.appendChild(this.crawlmain.nativeElement, this.crawllogo.nativeElement);
+    this.renderer.appendChild(this.crawlmain.nativeElement, this.crawlcontent.nativeElement);
+
+    this.renderer.addClass(this.crawlmain.nativeElement, 'star-wars-intro');
+    this.renderer.addClass(this.crawlintro.nativeElement, 'intro-text');
+    this.renderer.addClass(this.crawllogo.nativeElement, 'main-logo');
+    this.renderer.addClass(this.crawlcontent.nativeElement, 'main-content');
+  }
 
   openings: OpeningCrawl[] = [
     {
@@ -90,54 +143,10 @@ export class HomeComponent {
       title: "Aquest és el darrer sprint de l'itinerari d'Angular",
       paragraph1: "Han estat unes setmanes intenses, amb reptes constants i moltes novetats...",
       paragraph2: "Abans que s'acabi el curs, vull donar-te les gràcies, Albert, per aquestes tardes compartides, pel teu suport i per tot allò que he après.",
-      paragraph3: "Has fet que tot sigui més agradable, i m'has donat l'empenta per créixer i continuar. Que la força d'acompanyi!",
-
+      paragraph3: "Has fet que tot sigui més agradable, i m'has donat l'empenta per créixer i continuar.",
+      paragraph4: "Que la força t'acompanyi!"
     }
   ]
-
-  loadEpisode(episode: number) {
-    this.indexEpisode = episode;
-    if (episode == 9) {
-      this.intro = "Ha arribat, s'acosta el final de curs i de la mentoria...";
-    } else {
-      this.intro = "A long time ago in a galaxy far, far away...";
-    }
-    this.reloadAnimation();
-  }
-
-  private reloadAnimation() {
-    this.renderer.removeClass(this.crawlmain.nativeElement, 'star-wars-intro');
-    this.renderer.removeClass(this.crawlintro.nativeElement, 'intro-text');
-    this.renderer.removeClass(this.crawllogo.nativeElement, 'main-logo');
-    this.renderer.removeClass(this.crawlcontent.nativeElement, 'main-content');
-
-    this.renderer.removeChild(this.crawlmain.nativeElement, this.crawlintro.nativeElement);
-    this.renderer.removeChild(this.crawlmain.nativeElement, this.crawllogo.nativeElement);
-    this.renderer.removeChild(this.crawlmain.nativeElement, this.crawlcontent.nativeElement);
-
-    this.renderer.appendChild(this.crawlmain.nativeElement, this.crawlintro.nativeElement);
-    this.renderer.appendChild(this.crawlmain.nativeElement, this.crawllogo.nativeElement);
-    this.renderer.appendChild(this.crawlmain.nativeElement, this.crawlcontent.nativeElement);
-
-    this.renderer.addClass(this.crawlmain.nativeElement, 'star-wars-intro');
-    this.renderer.addClass(this.crawlintro.nativeElement, 'intro-text');
-    this.renderer.addClass(this.crawllogo.nativeElement, 'main-logo');
-    this.renderer.addClass(this.crawlcontent.nativeElement, 'main-content');
-  }
-
-  constructor(
-    private renderer: Renderer2
-  ) {
-    this.intro = "A long time ago in a galaxy far, far away...";
-    this.indexEpisode = 0;
-    window.scrollTo(0, 0);
-  }
 }
 
-interface OpeningCrawl {
-  episode: string;
-  title: string;
-  paragraph1: string;
-  paragraph2: string;
-  paragraph3: string;
-}
+

@@ -25,7 +25,12 @@ export class StarshipDetailComponent implements OnInit, OnDestroy {
     private router: Router,
     private route: ActivatedRoute
   ) {
-    this.id = this.route.snapshot.params['id'];
+    try {
+      this.id = this.route.snapshot.params['id'];
+    } catch {
+      this.id = "0";
+    }
+
     this.starship = this.starshipsService.getEmptyStarship();
     this.description = "";
     this.starship$ = new Subscription;
@@ -34,7 +39,7 @@ export class StarshipDetailComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
-    
+
     this.starshipsService.getStarshipByID(this.id);
 
     this.starship$ = this.starshipsService.getStarship$()
