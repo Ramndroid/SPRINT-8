@@ -35,6 +35,7 @@ export class OpeningComponent {
   ) {
     this.intro = "A long time ago in a galaxy far, far away...";
     this.indexEpisode = 0;
+    window.scrollTo(0, 0);
   }
 
   loadEpisode(episode: number) {

@@ -2,7 +2,6 @@ import { StarshipsService } from './../../../services/starships/starships.servic
 import { Component, OnInit } from '@angular/core';
 import { Starship } from 'src/app/interfaces/starship';
 
-
 @Component({
   selector: 'app-starships-list',
   templateUrl: './starships-list.component.html'
@@ -14,13 +13,12 @@ export class StarshipsListComponent implements OnInit {
 
   constructor(
     private starshipsService: StarshipsService
-  ) { 
-    this.starships = [];
+  ) {
+    this.starships = [];    
   }
 
   ngOnInit(): void {
     this.getPagesOfStarships();
-    // window.scrollTo(100, 100);
   }
 
   onScroll(): void {
@@ -28,7 +26,7 @@ export class StarshipsListComponent implements OnInit {
   }
 
   private getPagesOfStarships() {
-    this.starshipsService.getStarshipsByPage();    
+    this.starshipsService.getStarshipsByPage();
     this.starships = this.starshipsService.getStarships;
   }
 

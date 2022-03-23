@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { StarshipsComponent } from './pages/starships/starships.component';
-import { StarshipDetailComponent } from './pages/starship-detail/starship-detail.component';
 import { UserGuard } from './user.guard';
+import { StarshipInfoComponent } from './components/starships/starship-info/starship-info.component';
 
 const routes: Routes = [
   {
@@ -17,7 +17,7 @@ const routes: Routes = [
   },
   {
     path: 'starship/:id',
-    component: StarshipDetailComponent,
+    component: StarshipInfoComponent,
     canActivate: [UserGuard]
   }
 ];

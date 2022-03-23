@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Starship } from 'src/app/interfaces/starship';
 import { StarshipsService } from 'src/app/services/starships/starships.service';
+import { People } from '../../../interfaces/people';
 
 @Component({
   selector: 'app-starship-info',
@@ -16,9 +17,13 @@ export class StarshipInfoComponent implements OnInit, OnDestroy {
 
   description: string;
 
+  pilots: People[];
+
   private starship$: Subscription;
 
   private description$: Subscription;
+
+  private pilots$: Subscription;
 
   constructor(
     private starshipsService: StarshipsService,
@@ -28,8 +33,10 @@ export class StarshipInfoComponent implements OnInit, OnDestroy {
     this.id = this.route.snapshot.params['id'];
     this.starship = this.starshipsService.getEmptyStarship();
     this.description = "";
+    this.pilots = [];
     this.starship$ = new Subscription;
     this.description$ = new Subscription;
+    this.pilots$ = new Subscription;
   }
 
   ngOnInit(): void {
@@ -49,11 +56,20 @@ export class StarshipInfoComponent implements OnInit, OnDestroy {
           this.description = description;
         }
       );
+
+    this.pilots$ = this.starshipsService.getPilots$()
+      .subscribe(
+        (pilots: People[]) => {
+          this.pilots = [...pilots];
+        }
+      );
   }
 
   ngOnDestroy(): void {
     this.starship$.unsubscribe();
     this.description$.unsubscribe();
+    this.pilots$.unsubscribe();
+    this.starshipsService.clearPilots();
   }
 
   goBack(): void {

@@ -1,10 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { UserDialogComponent } from '../../dialogs/user-dialog/user-dialog.component';
 import { UsersService } from '../../../services/users/users.service';
 import { Subscription } from 'rxjs';
 import { User } from '../../../interfaces/user';
 import { Router } from '@angular/router';
+import { LogDialogComponent } from '../../dialogs/log-dialog/log-dialog.component';
+import { UserDialogComponent } from '../../dialogs/user-dialog/user-dialog.component';
 
 @Component({
   selector: 'app-nav-bar-login',
@@ -73,18 +74,13 @@ export class NavBarLoginComponent implements OnInit, OnDestroy {
   }
 
   private openDialog(isNewUser: boolean) {
-    this.dialog.open(UserDialogComponent, {
+    this.dialog.open(LogDialogComponent, {
       data: { newUser: isNewUser }
     });
   }
 
   alertUserInfo() {
-    const user = this.users.getUserLoged();
-    const message: string = `
-    Name: ${user?.username}
-    Email: ${user?.email}
-    Password: ${user?.password}`;
-    alert(message);
+    this.dialog.open(UserDialogComponent);
   }
 
   logOut() {

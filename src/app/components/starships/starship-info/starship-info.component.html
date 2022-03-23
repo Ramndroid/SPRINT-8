@@ -1,3 +1,4 @@
+<app-subpage></app-subpage>
 <div class="page-container">
 
     <img class="w100 starship-img-detail" src="https://starwars-visualguide.com/assets/img/starships/{{id}}.jpg"
@@ -7,34 +8,40 @@
 
         <h2 class="ff-audiowide t-upper fc-yellow fs-4 pt-20 pb-30">{{ starship.name }}</h2>
 
-        <p class="fc-silver fs-2 pb-30">{{ description }}</p>
+        <p class="fc-silver fs-3 pb-30">{{ description }}</p>
 
         <table class="w100 mb-30">
             <tr>
-                <td class="starship-td-detail fc-white fs-2">Model: <span class="fc-silver f-italic">{{ starship.model
+                <td class="starship-td-detail fc-white fs-3">Model: <span class="fc-silver f-italic">{{ starship.model
                         }}</span></td>
-                <td class="starship-td-detail fc-white fs-2">Manufacturer: <span class="fc-silver f-italic">{{
+                <td class="starship-td-detail fc-white fs-3">Manufacturer: <span class="fc-silver f-italic">{{
                         starship.manufacturer }}</span></td>
             </tr>
             <tr>
-                <td class="starship-td-detail fc-white fs-2">Cost in credits: <span class="fc-silver f-italic">{{
+                <td class="starship-td-detail fc-white fs-3">Cost in credits: <span class="fc-silver f-italic">{{
                         starship.cost_in_credits }}</span></td>
-                <td class="starship-td-detail fc-white fs-2">Length: <span class="fc-silver f-italic">{{ starship.length
+                <td class="starship-td-detail fc-white fs-3">Length: <span class="fc-silver f-italic">{{ starship.length
                         }}m</span></td>
             </tr>
             <tr>
-                <td class="starship-td-detail fc-white fs-2">Atmospheric Speed: <span class="fc-silver f-italic">{{
+                <td class="starship-td-detail fc-white fs-3">Atmospheric Speed: <span class="fc-silver f-italic">{{
                         starship.max_atmosphering_speed }}</span></td>
-                <td class="starship-td-detail fc-white fs-2">Crew: <span class="fc-silver f-italic">{{ starship.crew
+                <td class="starship-td-detail fc-white fs-3">Crew: <span class="fc-silver f-italic">{{ starship.crew
                         }}</span></td>
             </tr>
         </table>
+
+        <app-pilots [pilots]="pilots"></app-pilots>
+
+
 
         <div class="flex-row flex-justify-center">
 
             <button class="btn star-hover bg-transparent fc-yellow fs-2 m-20" (click)="goBack()">Go back</button>
 
         </div>
+
+
 
     </div>
 

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { StarshipsPage } from '../../interfaces/starships-page';
 import { Starship } from 'src/app/interfaces/starship';
 import { Film } from 'src/app/interfaces/film';
+import { People } from '../../interfaces/people';
 
 @Injectable({
   providedIn: 'root'
@@ -60,6 +61,18 @@ export class ApiService {
     return page;
   }
 
+  extractPilotID(url: string): string {
+    let regex: RegExp;
+    
+    if (this.isUsingMainURL)
+      regex = /https\:\/\/swapi\.dev\/api\/people\/(\d+)\//;
+    else
+      regex = /https\:\/\/swapi\.py4e\.com\/api\/people\/(\d+)\//;
+
+    const id = url.match(regex)![1];
+    return id;
+  }
+
   getStarshipsByPage(page: number): Observable<StarshipsPage> {
     const path = `${this.getMainURL(this.endPointStarships)}${this.starshipPageParam}${page}`;
     return this.http.get<StarshipsPage>(path);
@@ -72,6 +85,10 @@ export class ApiService {
 
   getFilm(url: string): Observable<Film> {
     return this.http.get<Film>(url);    
+  }
+
+  getPeopleInfo(url: string): Observable<People> {
+    return this.http.get<People>(url);    
   }
 
 }

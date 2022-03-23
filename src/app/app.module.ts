@@ -11,7 +11,6 @@ import { ApiService } from './services/api/api.service';
 import { StarshipsService } from './services/starships/starships.service';
 import { NavBarComponent } from './components/ui/nav-bar/nav-bar.component';
 import { StarshipsComponent } from './pages/starships/starships.component';
-import { StarshipDetailComponent } from './pages/starship-detail/starship-detail.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { FooterComponent } from './components/ui/footer/footer.component';
 import { SocialComponent } from './components/ui/social/social.component';
@@ -27,6 +26,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { UserDialogComponent } from './components/dialogs/user-dialog/user-dialog.component';
 import { StorageService } from './services/storage/storage.service';
 import { UsersService } from './services/users/users.service';
+import { StarshipComponent } from './pages/starship/starship.component';
+import { OpeningComponent } from './components/opening/opening.component';
+import { StarshipInfoComponent } from './components/starships/starship-info/starship-info.component';
+import { LogDialogComponent } from './components/dialogs/log-dialog/log-dialog.component';
+import { PilotsComponent } from './components/starships/pilots/pilots.component';
 
 
 @NgModule({
@@ -36,7 +40,6 @@ import { UsersService } from './services/users/users.service';
     StarshipsListComponent,
     NavBarComponent,
     StarshipsComponent,
-    StarshipDetailComponent,
     FooterComponent,
     SocialComponent,
     FooterNavComponent,
@@ -44,7 +47,12 @@ import { UsersService } from './services/users/users.service';
     NavBarLoginComponent,
     SubpageComponent,
     NavBarBrandComponent,
-    UserDialogComponent
+    UserDialogComponent,
+    StarshipComponent,
+    OpeningComponent,
+    StarshipInfoComponent,
+    LogDialogComponent,
+    PilotsComponent
   ],
   imports: [
     BrowserModule,
@@ -54,8 +62,7 @@ import { UsersService } from './services/users/users.service';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatDialogModule
-    
+    MatDialogModule    
   ],
   providers: [
     ApiService,

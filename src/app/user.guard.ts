@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import { UserDialogComponent } from './components/dialogs/user-dialog/user-dialog.component';
+// import { UserDialogComponent } from './components/dialogs/user-dialog/user-dialog.component';
 import { UsersService } from './services/users/users.service';
+import { LogDialogComponent } from './components/dialogs/log-dialog/log-dialog.component';
 
 @Injectable({
   providedIn: 'root'
@@ -16,21 +17,23 @@ export class UserGuard implements CanActivate {
     public dialog: MatDialog
   ) { }
 
-  redirect(flag: boolean): void {
-    if (!flag) {
-      this.router.navigate(['/']);
-      this.dialog.open(UserDialogComponent, {
-        data: { newUser: false }
-      });
-    }
+  canActivate(
+    _: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    const registered = this.getResponse();
+    this.redirect(registered, state);
+    return registered;
   }
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    const registered = this.users.isRegisteredUser();
-    this.redirect(registered);
-    return registered;
+  private getResponse(): boolean {
+    return this.users.isRegisteredUser();
+  }
+
+  private redirect(flag: boolean, state: RouterStateSnapshot): void {
+    if (!flag) {
+      this.router.navigate(['/']);
+      this.dialog.open(LogDialogComponent, { data: { newUser: false, accesTo:state.url } });
+    }
   }
 
 }

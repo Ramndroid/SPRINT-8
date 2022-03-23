@@ -1,0 +1,58 @@
+@import "_vars.scss";
+
+
+$border-radius-container: 10px;
+
+$pilot-container-max-width: 780px;
+
+
+.pilot-card-container {
+    height        : 250px;
+    display       : flex;
+    flex-direction: row-reverse;
+    border-radius : 0 $border-radius-container $border-radius-container 0;
+}
+
+.pilot-img-detail {
+    max-inline-size: 100%;
+    block-size     : auto;
+    object-fit     : cover;
+    object-position: top center;
+    border-left    : $border-thick solid $color-blue;
+    border-radius  : 0 $border-radius-container $border-radius-container 0;
+    overflow       : hidden;
+}
+
+.pilot-info-container {
+    flex-grow       : 1;
+    background-color: $color-dark;
+}
+
+.pilot-card-left {
+    content: url("../assets/img/card-left.svg");
+}
+
+
+@media (max-width: $pilot-container-max-width) {
+
+    .pilot-card-container {
+        flex-direction: column;
+        height        : 650px;
+    }
+
+    .pilot-img-detail {
+        border-left  : none;
+        border-bottom: $border-thick solid $color-blue;
+        border-radius: $border-radius-container $border-radius-container 0 0;
+        overflow     : hidden;
+    }
+
+    .pilot-info-container {
+        flex-grow       : 0;
+        background-color: $color-dark;
+    }
+
+    .pilot-card-left {
+        display: none;
+    }
+}

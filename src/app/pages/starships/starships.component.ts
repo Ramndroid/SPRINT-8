@@ -1,11 +1,6 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-starships',
-  templateUrl: './starships.component.html'
+  selector: 'app-starships', template: '<app-starships-list></app-starships-list>'
 })
-export class StarshipsComponent {
-  constructor() { 
-    window.scrollTo(0, 0);
-  }
-}
+export class StarshipsComponent { constructor() { } }

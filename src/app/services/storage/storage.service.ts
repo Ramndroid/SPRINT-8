@@ -9,9 +9,6 @@ export class StorageService {
   static USERS            : string = "users";
   static CURRENTUSER      : string = "user";
   
-  // SessionStorage
-  static STARSHIPS_SCROLL: string = "starshipsScroll";
-
   constructor() { }
 
   getFromLocalStorage(key: string): string | null {
@@ -40,11 +37,5 @@ export class StorageService {
 
   eraseFromLocalStorage(key: string) {
     window.localStorage.removeItem(key);
-  }
-
-  eraseAllLocalStorage() {
-    this.eraseFromLocalStorage(StorageService.USERS);
-    this.eraseFromLocalStorage(StorageService.CURRENTUSER);
-    this.eraseFromLocalStorage(StorageService.STARSHIPS_SCROLL);
   }
 }

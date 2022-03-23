@@ -16,6 +16,18 @@
     background-color: transparent;
 }
 
+.bg-yellow {
+    background-color: $color-yellow;
+}
+
 .bg-test {
     background-color: yellow;
+}
+
+.hr-yellow {
+    display   : block;
+    height    : 1px;
+    border    : 0;
+    border-top: 1px solid $color-yellow;
+    padding   : 0;
 }

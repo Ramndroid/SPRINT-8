@@ -1,0 +1,47 @@
+<ng-container *ngIf="pilots.length > 0">
+    <div>
+        <h2 class="ff-audiowide t-upper fc-yellow fs-3 pt-10 pb-4">Pilots</h2>
+        <hr class="hr-yellow pb-50">
+        <div *ngFor="let pilot of pilots">
+
+            <div class="pilot-card-container mb-42 mx-4">
+
+                <img class="pilot-img-detail"
+                    src="https://starwars-visualguide.com/assets/img/characters/{{getPilotID(pilot.url)}}.jpg"
+                    alt="Starship image"
+                    onerror="this.src='https:\/\/starwars-visualguide.com/assets/img/big-placeholder.jpg'">
+
+                <div class="pilot-info-container">
+                    <div class="ms-20 mt-20">
+                        <h4 class="ff-poller fc-yellow fs-3 f-italic">{{pilot.name}}</h4>
+
+                        <table class="w100 ms-10 me-10 mt-30 mb-30">
+                            <tr>
+                                <td class="starship-td-detail fc-white fs-3">Gender: 
+                                    <span class="fc-silver f-italic">{{ pilot.gender }}</span></td>
+                                <td class="starship-td-detail fc-white fs-3">Skin color: 
+                                    <span class="fc-silver f-italic">{{ pilot.skin_color }}</span></td>
+                            </tr>
+                            <tr>
+                                <td class="starship-td-detail fc-white fs-3">Hair color: 
+                                    <span class="fc-silver f-italic">{{ pilot.hair_color }}</span></td>
+                                <td class="starship-td-detail fc-white fs-3">Eye color: 
+                                    <span class="fc-silver f-italic">{{ pilot.eye_color }}</span></td>
+                            </tr>
+                            <tr>
+                                <td class="starship-td-detail fc-white fs-3">Height: 
+                                    <span class="fc-silver f-italic">{{ pilot.height }}cm</span></td>
+                                <td class="starship-td-detail fc-white fs-3">Mass: 
+                                    <span class="fc-silver f-italic">{{ pilot.mass }}kg</span></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+
+                <img class="pilot-card-left" alt="">
+
+            </div>
+        </div>
+    </div>
+</ng-container>

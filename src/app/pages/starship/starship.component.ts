@@ -1,15 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-starship',
-  templateUrl: './starship.component.html'
+  selector: 'app-starship', template: '<app-starship-info></app-starship-info>'
 })
-export class StarshipComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-    window.scrollTo(0, 0);
-  }
-
-}
+export class StarshipComponent { constructor() { } }

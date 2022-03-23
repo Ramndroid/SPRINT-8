@@ -4,6 +4,7 @@ import { Starship } from '../../interfaces/starship';
 import { Film } from 'src/app/interfaces/film';
 import { StarshipsPage } from '../../interfaces/starships-page';
 import { Subject, Observable } from 'rxjs';
+import { People } from 'src/app/interfaces/people';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,10 @@ export class StarshipsService {
 
   private description$: Subject<string>;
 
+  private pilots: People[];
+
+  private pilots$: Subject<People[]>;
+
   constructor(
     private apiService: ApiService
   ) {
@@ -25,6 +30,8 @@ export class StarshipsService {
     this.page = 1;
     this.starship$ = new Subject();
     this.description$ = new Subject();
+    this.pilots = [];
+    this.pilots$ = new Subject();
   }
 
   get getStarships(): Starship[] {
@@ -39,6 +46,10 @@ export class StarshipsService {
     return this.description$.asObservable();
   }
 
+  getPilots$(): Observable<People[]> {
+    return this.pilots$.asObservable();
+  }
+
   getEmptyStarship(): Starship {
     return {
       name: "", model: "", manufacturer: "", cost_in_credits: "",
@@ -50,6 +61,10 @@ export class StarshipsService {
 
   extractStarshipID(url: string): string {
     return this.apiService.extractStarshipID(url);
+  }
+
+  extractPilotID(url: string): string {
+    return this.apiService.extractPilotID(url);
   }
 
   getStarshipsByPage(): void {
@@ -71,6 +86,21 @@ export class StarshipsService {
     }
   }
 
+  getStarshipByID(id: string): void {
+    this.apiService.getStarshipByID(id)
+      .subscribe(
+        (starship: Starship) => {
+          this.starship$.next(starship);
+          this.getFilmsOfStarship(starship.films);
+          this.getPilotsOfStarship(starship.pilots);
+        }
+      );
+  }
+
+  clearPilots() {
+    this.pilots = [];
+  }
+
   private extractStarshipPage(url: string): string {
     return this.apiService.extractStarshipPage(url);
   }
@@ -84,16 +114,6 @@ export class StarshipsService {
     for (const starship of starshipsToAppend) {
       this.starships.push(starship);
     }
-  }
-
-  getStarshipByID(id: string): void {
-    this.apiService.getStarshipByID(id)
-      .subscribe(
-        (starship: Starship) => {
-          this.starship$.next(starship);
-          this.getFilmsOfStarship(starship.films);
-        }
-      );
   }
 
   private getFilmsOfStarship(films: string[]): void {
@@ -119,4 +139,32 @@ export class StarshipsService {
       );
   }
 
+  private getPilotsOfStarship(pilots: string[]) {
+    const pilotsLength = pilots.length;
+    if (pilotsLength > 0) {
+      pilots.forEach(pilot => this.getPilot(pilot));
+    }
+  }
+
+  private getPilot(pilot: string) {
+    this.apiService.getPeopleInfo(pilot)
+      .subscribe(
+        (people: People) => {
+          this.pilots.push(people);
+          const sortedPilots = [...this.sortPilotsAlphabet(this.pilots)];
+          this.pilots$.next(sortedPilots);
+          // this.pilots$.next(this.pilots);
+        }
+      );
+  }
+
+  private sortPilotsAlphabet(pilots: People[]): People[] {
+    const result = pilots.sort((a, b) => {
+      if (a.name === "" || a.name === null) return 1;
+      if (b.name === "" || b.name === null) return -1;
+      if (a.name.toLocaleLowerCase() === b.name.toLocaleLowerCase()) return 0;
+      return a.name.toLocaleLowerCase() < b.name.toLocaleLowerCase() ? -1 : 1;
+    })
+    return result;
+  }
 }
