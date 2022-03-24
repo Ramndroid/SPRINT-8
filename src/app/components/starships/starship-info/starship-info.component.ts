@@ -25,6 +25,8 @@ export class StarshipInfoComponent implements OnInit, OnDestroy {
 
   private pilots$: Subscription;
 
+  isLoaded: boolean;
+
   constructor(
     private starshipsService: StarshipsService,
     private router: Router,
@@ -37,6 +39,7 @@ export class StarshipInfoComponent implements OnInit, OnDestroy {
     this.starship$ = new Subscription;
     this.description$ = new Subscription;
     this.pilots$ = new Subscription;
+    this.isLoaded = false;
   }
 
   ngOnInit(): void {
@@ -47,6 +50,7 @@ export class StarshipInfoComponent implements OnInit, OnDestroy {
       .subscribe(
         (starship: Starship) => {
           this.starship = starship;
+          this.isLoaded = true;
         }
       );
 
@@ -70,10 +74,10 @@ export class StarshipInfoComponent implements OnInit, OnDestroy {
     this.description$.unsubscribe();
     this.pilots$.unsubscribe();
     this.starshipsService.clearPilots();
+    this.isLoaded = false;
   }
 
   goBack(): void {
     this.router.navigate(['starships']);
   }
-
 }

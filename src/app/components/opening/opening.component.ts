@@ -133,7 +133,7 @@ export class OpeningComponent {
       paragraph3: "Meanwhile, Supreme Leader KYLO REN rages in search of the phantom Emperor, determined to destroy any threat to his power..."
     },
     {
-      episode: "Sprint 8",
+      episode: "Sprint VIII",
       title: "EL DARRER SPRINT DE L'ITINERARI ANGULAR",
       paragraph1: "Han estat unes setmanes intenses, amb reptes constants i moltes novetats...",
       paragraph2: "Abans que s'acabi el curs, vull donar-te les gràcies, Albert, per aquestes tardes compartides, pel teu suport i per tot allò que he après.",

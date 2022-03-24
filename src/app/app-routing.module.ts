@@ -8,17 +8,20 @@ import { StarshipInfoComponent } from './components/starships/starship-info/star
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    data: {animation: 'home'}
   },
   {
     path: 'starships',
     component: StarshipsComponent,
-    canActivate: [UserGuard]
+    canActivate: [UserGuard],
+    data: {animation: 'starships'}
   },
   {
     path: 'starship/:id',
     component: StarshipInfoComponent,
-    canActivate: [UserGuard]
+    canActivate: [UserGuard],
+    data: {animation: 'starship'}
   }
 ];
 

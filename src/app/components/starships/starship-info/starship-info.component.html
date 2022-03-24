@@ -1,48 +1,64 @@
 <app-subpage></app-subpage>
 <div class="page-container">
 
-    <img class="w100 starship-img-detail" src="https://starwars-visualguide.com/assets/img/starships/{{id}}.jpg"
+    <ng-container *ngIf="isLoaded else spinner">
+
+        <img class="w100 starship-img-detail" src="https://starwars-visualguide.com/assets/img/starships/{{id}}.jpg"
         alt="Starship image" onerror="this.src='https:\/\/starwars-visualguide.com/assets/img/big-placeholder.jpg'">
+        
+        <div class="flex-col mx-10">
 
-    <div class="flex-col mx-10">
+            <h1 class="ff-audiowide t-upper fc-yellow fs-5 pt-20 pb-30">{{ starship.name }}</h1>
+            <p class="ff-audiowide t-justify fc-silver fs-3 f-italic pb-30">{{ description }}</p>
+            <p class="ff-audiowide fc-magenta fs-3 mb-20">Model: <span class="ff-audiowide fc-silver f-italic">{{
+                    starship.model
+                    }}</span></p>
+            <p class="ff-audiowide fc-magenta fs-3 mb-20">Manufacturer: <span class="ff-audiowide fc-silver f-italic">{{
+                    starship.manufacturer }}</span></p>
 
-        <h2 class="ff-audiowide t-upper fc-yellow fs-4 pt-20 pb-30">{{ starship.name }}</h2>
+            <table class="w100 mb-30">
+                <tr>
+                    <td class="starship-td-detail ff-audiowide fc-magenta fs-3 pb-20">Cost in credits: <span
+                            class="ff-audiowide fc-silver f-italic">{{
+                            starship.cost_in_credits }}</span></td>
+                    <td class="starship-td-detail ff-audiowide fc-magenta fs-3 ps-10">Length: <span
+                            class="ff-audiowide fc-silver f-italic">{{ starship.length
+                            }} m</span></td>
+                </tr>
+                <tr>
+                    <td class="starship-td-detail ff-audiowide fc-magenta fs-3">Atmospheric Speed: <span
+                            class="ff-audiowide fc-silver f-italic">{{
+                            starship.max_atmosphering_speed }}</span></td>
+                    <td class="starship-td-detail ff-audiowide fc-magenta fs-3 ps-10">Crew: <span
+                            class="ff-audiowide fc-silver f-italic">{{
+                            starship.crew
+                            }}</span></td>
+                </tr>
+            </table>
 
-        <p class="fc-silver fs-3 pb-30">{{ description }}</p>
+            <app-pilots [pilots]="pilots"></app-pilots>
 
-        <table class="w100 mb-30">
-            <tr>
-                <td class="starship-td-detail fc-white fs-3">Model: <span class="fc-silver f-italic">{{ starship.model
-                        }}</span></td>
-                <td class="starship-td-detail fc-white fs-3">Manufacturer: <span class="fc-silver f-italic">{{
-                        starship.manufacturer }}</span></td>
-            </tr>
-            <tr>
-                <td class="starship-td-detail fc-white fs-3">Cost in credits: <span class="fc-silver f-italic">{{
-                        starship.cost_in_credits }}</span></td>
-                <td class="starship-td-detail fc-white fs-3">Length: <span class="fc-silver f-italic">{{ starship.length
-                        }}m</span></td>
-            </tr>
-            <tr>
-                <td class="starship-td-detail fc-white fs-3">Atmospheric Speed: <span class="fc-silver f-italic">{{
-                        starship.max_atmosphering_speed }}</span></td>
-                <td class="starship-td-detail fc-white fs-3">Crew: <span class="fc-silver f-italic">{{ starship.crew
-                        }}</span></td>
-            </tr>
-        </table>
+            <div class="flex-row flex-justify-center">
 
-        <app-pilots [pilots]="pilots"></app-pilots>
+                <button class="btn star-hover bg-transparent fc-yellow fs-2 m-20" (click)="goBack()">Go back</button>
 
-
-
-        <div class="flex-row flex-justify-center">
-
-            <button class="btn star-hover bg-transparent fc-yellow fs-2 m-20" (click)="goBack()">Go back</button>
+            </div>
 
         </div>
+    </ng-container>
 
+    <ng-template #spinner>
+        <div class="flex-row flex-center spinner-container">
+            <div class="spinner-img"></div>
+        </div>
+    </ng-template>
 
+    <ng-template #spinnerimg>
+        <div class="flex-row flex-center spinner-img-container">
+            <div class="spinner-img"></div>
+        </div>
+    </ng-template>
 
-    </div>
 
 </div>
+<app-footer></app-footer>

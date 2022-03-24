@@ -1,6 +1,8 @@
 <ng-container *ngIf="pilots.length > 0">
     <div>
-        <h2 class="ff-audiowide t-upper fc-yellow fs-3 pt-10 pb-4">Pilots</h2>
+        <h2 class="ff-poller f-italic t-upper fc-yellow fs-3 mt-50 pb-4">{{ 
+            pilots.length == 1 ? "pilot": "pilots ("+ pilots.length + ")"
+         }}</h2>
         <hr class="hr-yellow pb-50">
         <div *ngFor="let pilot of pilots">
 
@@ -12,29 +14,50 @@
                     onerror="this.src='https:\/\/starwars-visualguide.com/assets/img/big-placeholder.jpg'">
 
                 <div class="pilot-info-container">
-                    <div class="ms-20 mt-20">
-                        <h4 class="ff-poller fc-yellow fs-3 f-italic">{{pilot.name}}</h4>
-
-                        <table class="w100 ms-10 me-10 mt-30 mb-30">
-                            <tr>
-                                <td class="starship-td-detail fc-white fs-3">Gender: 
-                                    <span class="fc-silver f-italic">{{ pilot.gender }}</span></td>
-                                <td class="starship-td-detail fc-white fs-3">Skin color: 
-                                    <span class="fc-silver f-italic">{{ pilot.skin_color }}</span></td>
-                            </tr>
-                            <tr>
-                                <td class="starship-td-detail fc-white fs-3">Hair color: 
-                                    <span class="fc-silver f-italic">{{ pilot.hair_color }}</span></td>
-                                <td class="starship-td-detail fc-white fs-3">Eye color: 
-                                    <span class="fc-silver f-italic">{{ pilot.eye_color }}</span></td>
-                            </tr>
-                            <tr>
-                                <td class="starship-td-detail fc-white fs-3">Height: 
-                                    <span class="fc-silver f-italic">{{ pilot.height }}cm</span></td>
-                                <td class="starship-td-detail fc-white fs-3">Mass: 
-                                    <span class="fc-silver f-italic">{{ pilot.mass }}kg</span></td>
-                            </tr>
-                        </table>
+                    <div class="ms-20 ps-20 mt-20">
+                        <h2 class="ff-poller fc-yellow fs-3">{{pilot.name}}</h2>
+                        <div class="flex-row mt-20 mb-10 flex-center">
+                            <div>
+                                <ng-container *ngIf="pilot.gender != 'unknown'">
+                                    <h3 class="fc-white fs-pilot-card mb-4 ff-poller">Gender: </h3>
+                                </ng-container>
+                                <ng-container *ngIf="pilot.height != 'unknown'">
+                                    <h3 class="fc-white fs-pilot-card mb-4 ff-poller">Height: </h3>
+                                </ng-container>
+                                <ng-container *ngIf="pilot.mass != 'unknown'">
+                                    <h3 class="fc-white fs-pilot-card mb-4 ff-poller">Mass: </h3>
+                                </ng-container>
+                                <ng-container *ngIf="pilot.skin_color != 'unknown'">
+                                    <h3 class="fc-white fs-pilot-card mb-4 ff-poller">Skin color: </h3>
+                                </ng-container>
+                                <ng-container *ngIf="pilot.hair_color != 'unknown'">
+                                    <h3 class="fc-white fs-pilot-card mb-4 ff-poller">Hair color: </h3>
+                                </ng-container>
+                                <ng-container *ngIf="pilot.eye_color != 'unknown'">
+                                    <h3 class="fc-white fs-pilot-card mb-4 ff-poller">Eye color: </h3>
+                                </ng-container>
+                            </div>
+                            <div class="ms-20">
+                                <ng-container *ngIf="pilot.gender != 'unknown'">
+                                    <h3 class="fc-silver f-italic fs-pilot-card mb-4 ff-poller">{{ pilot.gender }}</h3>
+                                </ng-container>
+                                <ng-container *ngIf="pilot.height != 'unknown'">
+                                    <h3 class="fc-silver f-italic fs-pilot-card mb-4 ff-poller">{{ pilot.height }} cm</h3>
+                                </ng-container>
+                                <ng-container *ngIf="pilot.mass != 'unknown'">
+                                    <h3 class="fc-silver fs-pilot-card  ff-poller">{{ pilot.mass }} kg</h3>
+                                </ng-container>
+                                <ng-container *ngIf="pilot.skin_color !== 'unknown'">
+                                    <h3 class="fc-silver f-italic fs-pilot-card mb-4 ff-poller">{{ pilot.skin_color }}</h3>
+                                </ng-container>
+                                <ng-container *ngIf="pilot.hair_color != 'unknown'">
+                                    <h3 class="fc-silver f-italic fs-pilot-card mb-4 ff-poller">{{ pilot.hair_color }}</h3>
+                                </ng-container>
+                                <ng-container *ngIf="pilot.eye_color != 'unknown'">
+                                    <h3 class="fc-silver f-italic fs-pilot-card mb-4 ff-poller">{{ pilot.eye_color }}</h3>
+                                </ng-container>
+                            </div>
+                        </div>
                     </div>
 
                 </div>

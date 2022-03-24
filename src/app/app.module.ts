@@ -56,12 +56,12 @@ import { PilotsComponent } from './components/starships/pilots/pilots.component'
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     InfiniteScrollModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
     MatDialogModule    
   ],
   providers: [
