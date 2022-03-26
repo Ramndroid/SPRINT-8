@@ -1,13 +1,25 @@
 <nav>
 
-    <ul class="nav-bar-tabs w100 flex-row flex-justify-center f-bold fs-1 t-upper">
+    <ul class="nav-bar-tabs w100 f-bold fs-1 t-upper">
 
-        <li class="pt-9" routerLinkActive="nav-bar-active" [routerLinkActiveOptions]="{exact: true}">
-            <a class="fc-silver-off mx-20" routerLink="">home</a>
+        <li class="pt-9 flex-col flex-justify-end" routerLinkActive="nav-bar-active nav-bar-active-home" [routerLinkActiveOptions]="{exact: true}">
+            <a class="nav-bar-text mx-20" routerLink="">home</a>
+            <span class = "mt-2"></span>
         </li>
 
-        <li class="pt-9" routerLinkActive="nav-bar-active-starhips">
-            <a class="fc-silver-off mx-20" routerLink="/starships">starships</a>
+        <li class="pt-9 flex-col flex-justify-end" routerLinkActive="nav-bar-active nav-bar-active-films">
+            <a class="nav-bar-text mx-20" routerLink="/films">films</a>
+            <span class="mt-2"></span>
+        </li>
+
+        <li class="pt-9 flex-col flex-justify-end" routerLinkActive="nav-bar-active nav-bar-active-starships">
+            <a class="nav-bar-text mx-20" routerLink="/starships">starships</a>
+            <span class="mt-2"></span>
+        </li>
+
+        <li class="pt-9 flex-col flex-justify-end" routerLinkActive="nav-bar-active nav-bar-active-disney">
+            <a class="nav-bar-text mx-20" routerLink="/disneyplus">disney+</a>
+            <span class="mt-2"></span>
         </li>
         
     </ul>

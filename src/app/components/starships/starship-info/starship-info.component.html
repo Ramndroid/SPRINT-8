@@ -3,62 +3,88 @@
 
     <ng-container *ngIf="isLoaded else spinner">
 
-        <img class="w100 starship-img-detail" src="https://starwars-visualguide.com/assets/img/starships/{{id}}.jpg"
-        alt="Starship image" onerror="this.src='https:\/\/starwars-visualguide.com/assets/img/big-placeholder.jpg'">
-        
-        <div class="flex-col mx-10">
+        <ng-container *ngIf="starship.url !== '' else error404">
 
-            <h1 class="ff-audiowide t-upper fc-yellow fs-5 pt-20 pb-30">{{ starship.name }}</h1>
-            <p class="ff-audiowide t-justify fc-silver fs-3 f-italic pb-30">{{ description }}</p>
-            <p class="ff-audiowide fc-magenta fs-3 mb-20">Model: <span class="ff-audiowide fc-silver f-italic">{{
-                    starship.model
-                    }}</span></p>
-            <p class="ff-audiowide fc-magenta fs-3 mb-20">Manufacturer: <span class="ff-audiowide fc-silver f-italic">{{
-                    starship.manufacturer }}</span></p>
+            <div *ngIf="isImgLoading" class="flex-row flex-center spinner-container">
+                <div class="spinner-img"></div>
+            </div>
+            <img class="w100" src="https://starwars-visualguide.com/assets/img/starships/{{id}}.jpg"
+                alt="Starship image"
+                onerror="this.src='https:\/\/starwars-visualguide.com/assets/img/big-placeholder.jpg'"
+                [hidden]="isImgLoading" (load)="onImageLoaded()"
+                [ngClass]="isImgLoading? '': ['starship-img-detail', 'fade-in-slow']">
 
-            <table class="w100 mb-30">
-                <tr>
-                    <td class="starship-td-detail ff-audiowide fc-magenta fs-3 pb-20">Cost in credits: <span
+            <div class="flex-col mx-10 bg-grad">
+
+                <h1 class="ff-audiowide fc-stellar t-upper fc-yellow fs-5 pt-20 pb-30 nav-bar-active" [ngClass]="isLoaded? 'fade-in-slow': ''">{{
+                    starship.name }}</h1>
+
+                <div *ngIf="isDescriptionLoading" class="flex-row flex-center">
+                    <div class="spinner-description mb-30"></div>
+                </div>
+
+                <div [ngClass]="isLoaded? 'fade-in-slow': ''">
+
+
+                    <p [hidden]="isDescriptionLoading" class="ff-audiowide t-justify fc-silver fs-3 f-italic pb-30"
+                        [ngClass]="isDescriptionLoading? '': 'fade-in-slow'">{{ description }}</p>
+
+                    <p class="ff-audiowide fc-magenta fs-3 mb-20">Model: <span
                             class="ff-audiowide fc-silver f-italic">{{
-                            starship.cost_in_credits }}</span></td>
-                    <td class="starship-td-detail ff-audiowide fc-magenta fs-3 ps-10">Length: <span
-                            class="ff-audiowide fc-silver f-italic">{{ starship.length
-                            }} m</span></td>
-                </tr>
-                <tr>
-                    <td class="starship-td-detail ff-audiowide fc-magenta fs-3">Atmospheric Speed: <span
+                            starship.model
+                            }}</span></p>
+                    <p class="ff-audiowide fc-magenta fs-3 mb-20">Manufacturer: <span
                             class="ff-audiowide fc-silver f-italic">{{
-                            starship.max_atmosphering_speed }}</span></td>
-                    <td class="starship-td-detail ff-audiowide fc-magenta fs-3 ps-10">Crew: <span
-                            class="ff-audiowide fc-silver f-italic">{{
-                            starship.crew
-                            }}</span></td>
-                </tr>
-            </table>
+                            starship.manufacturer }}</span></p>
 
-            <app-pilots [pilots]="pilots"></app-pilots>
+                    <table class="w100 mb-30">
+                        <tr>
+                            <td class="starship-td-detail ff-audiowide fc-magenta fs-3 pb-20">Cost in credits: <span
+                                    class="ff-audiowide fc-silver f-italic">{{
+                                    starship.cost_in_credits }}</span></td>
+                            <td class="starship-td-detail ff-audiowide fc-magenta fs-3 ps-10">Length: <span
+                                    class="ff-audiowide fc-silver f-italic">{{ starship.length
+                                    }} m</span></td>
+                        </tr>
+                        <tr>
+                            <td class="starship-td-detail ff-audiowide fc-magenta fs-3">Atmospheric Speed: <span
+                                    class="ff-audiowide fc-silver f-italic">{{
+                                    starship.max_atmosphering_speed }}</span></td>
+                            <td class="starship-td-detail ff-audiowide fc-magenta fs-3 ps-10">Crew: <span
+                                    class="ff-audiowide fc-silver f-italic">{{
+                                    starship.crew
+                                    }}</span></td>
+                        </tr>
+                    </table>
 
-            <div class="flex-row flex-justify-center">
+                </div>
 
-                <button class="btn star-hover bg-transparent fc-yellow fs-2 m-20" (click)="goBack()">Go back</button>
+                <div *ngIf="isPilotsLoading" class="flex-row flex-center">
+                    <div class="spinner-pilots mt-50 mb-50"></div>
+                </div>
+                <app-pilots [hidden]="isPilotsLoading" [pilots]="pilots"></app-pilots>
+
+                <div class="flex-row flex-justify-center">
+                    <button class="btn star-hover bg-transparent fc-yellow fs-2 m-20" (click)="goBack()">Go
+                        back</button>
+                </div>
 
             </div>
+        </ng-container>
 
-        </div>
     </ng-container>
 
     <ng-template #spinner>
         <div class="flex-row flex-center spinner-container">
-            <div class="spinner-img"></div>
+            <div class="spinner"></div>
         </div>
     </ng-template>
 
-    <ng-template #spinnerimg>
-        <div class="flex-row flex-center spinner-img-container">
-            <div class="spinner-img"></div>
+    <ng-template #error404>
+        <div class="flex-col flex-center error404-container">
+            <h2 class="ff-poller fc-yellow fs-5 t-upper">Oops! Starship not found</h2>
         </div>
     </ng-template>
-
 
 </div>
 <app-footer></app-footer>

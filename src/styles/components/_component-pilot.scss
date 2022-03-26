@@ -1,10 +1,13 @@
-@import "_vars.scss";
-
+@import "../vars";
 
 $border-radius-container: 10px;
 
 $pilot-container-max-width: 780px;
 
+.pilot-spinner-container {
+    width: 183px;
+    height: auto;
+}
 
 .pilot-card-container {
     height        : 250px;
@@ -29,11 +32,15 @@ $pilot-container-max-width: 780px;
 }
 
 .pilot-card-left {
-    content: url("../assets/img/card-left.svg");
+    content: url("../../assets/img/card-left.svg");
 }
 
 
 @media (max-width: $pilot-container-max-width) {
+
+    .pilot-spinner-container {
+        width: 100%;
+    }
 
     .pilot-card-container {
         flex-direction: column;
@@ -48,7 +55,7 @@ $pilot-container-max-width: 780px;
     }
 
     .pilot-info-container {
-        flex-grow       : 0;
+        flex-grow       : 1;
         background-color: $color-dark;
     }
 

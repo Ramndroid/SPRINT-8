@@ -1,0 +1,25 @@
+.nav-bar-sign {
+    position    : absolute;
+    right       : 10px;
+    top         : 60px;
+
+    @media (max-width: 899px) {
+        top         : 5px;
+    }
+}
+
+.nav-bar-login-item,
+.nav-bar-login-decor {
+    display: inline;
+}
+
+@media (max-width: 899px) {
+    .nav-bar-login-decor {
+        display: none;
+    }
+
+    .nav-bar-login-item {
+        display: block;
+        text-align: right;
+    }
+}

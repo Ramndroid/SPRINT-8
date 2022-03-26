@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { User } from 'src/app/interfaces/user';
 import { UsersService } from '../../../services/users/users.service';
 
 @Component({
@@ -17,9 +18,13 @@ export class UserDialogComponent {
   constructor(
     private users: UsersService
   ) {
-    const { username, email, password } = this.users.getUserLoged()!;
-    this.username = username;
-    this.email = email;
-    this.passw = password;
+    const user: User | null | undefined = this.users.getUserLoged();
+    if (user !== null && user !== undefined) {
+      const { username, email, password } = user;
+      this.username = username;
+      this.email = email;
+      this.passw = password;
+    }
+    
   }
 }

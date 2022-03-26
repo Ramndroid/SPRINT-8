@@ -1,0 +1,26 @@
+@font-face {
+    font-family: swfont;
+    src        : url("../assets/fonts/DINNextW01Regular.otf");
+}
+
+* {
+    list-style     : none;
+    text-decoration: none;
+    box-sizing     : border-box;
+    margin         : 0;
+    padding        : 0;
+    font-family      : "swfont", 'Roboto', sans-serif;
+}
+
+body {
+    
+    background-image: url("../assets/img/stars-pages.jpeg");
+    background-position: top;
+    background-size: auto;
+    background-attachment: fixed;
+}
+
+
+// html, body { 
+//     height: 100%; 
+// }

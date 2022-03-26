@@ -1,0 +1,118 @@
+@import "../vars";
+
+.nav-bar-tabs {
+    height    : $height-tabs-navbar;
+    border-top: $border-grey;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: black;
+
+    span {
+        margin-bottom: 7px;
+    }
+
+    @media (max-width: 399px) {
+        justify-content: flex-start;
+        overflow-x: auto;
+    }
+}
+
+@media (min-width: 1059px) {
+    .nav-bar-tabs {
+        height    : $height-tabs-navbar + 7px;
+
+        span {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+
+.nav-bar-tabs>li {
+
+    &:nth-child(1) {
+        border-left: $border-grey;
+    }
+
+    &:nth-child(2) {
+        border-left : $border-grey;
+        // border-right: $border-grey;
+    }
+
+    &:nth-child(3) {
+        border-left : $border-grey;
+        // border-right: $border-grey;
+    }
+
+    &:nth-child(4) {
+        border-left : $border-grey;
+        border-right: $border-grey;
+    }
+}
+
+
+
+.nav-bar-active {
+    display : block;
+    position: relative;
+    color   : white;
+
+    span {
+        content   : "";
+        display   : inline-block;
+        width     : 32px;
+        border-top: 1px solid #fff;
+        box-shadow: 0 0 6px 2px;
+        align-self: center;
+        margin-bottom: 6px;
+
+        @media (min-width: 1059px) {
+            margin-bottom: 9px;
+        }
+    }
+
+    a {
+        color      : #FFFFFF;
+        text-shadow: 0px 0px 30px rgba(255, 255, 255, 0.637);
+    }
+
+    
+}
+
+.nav-bar-active-home {
+    span {
+        color  : $color-blue;
+    }
+}
+
+.nav-bar-active-films {
+    span {
+        color     : $color-red;
+    }
+}
+
+.nav-bar-active-starships {
+    span {
+        color     : $color-yellow;
+    }
+}
+
+.nav-bar-active-disney {
+    span {
+        color     : $color-white;
+    }
+}
+
+.nav-bar-text {
+    color             : $color-silver;
+    -webkit-transition: color $animation-duration, text-shadow $animation-duration;
+    transition        : color $animation-duration, text-shadow $animation-duration;
+    text-shadow       : 0px 0px 00px rgba(255, 255, 255, 0.637);
+
+    &:hover {
+        color: #FFFFFF;
+        text-shadow: 0px 0px 30px rgba(255, 255, 255, 0.637);
+    }
+}

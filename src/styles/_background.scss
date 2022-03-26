@@ -1,4 +1,4 @@
-@import "_vars.scss";
+@import "vars";
 
 .bg-black {
     background-color: #000000;
@@ -22,6 +22,10 @@
 
 .bg-test {
     background-color: yellow;
+}
+
+.bg-grad {
+    background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(1,1,1,0.4) 10%, rgba(1,1,1,0.7) 50%, rgba(0,0,0,0.4) 90%, rgba(1,1,1,0) 100%);
 }
 
 .hr-yellow {

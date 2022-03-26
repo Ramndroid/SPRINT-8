@@ -1,4 +1,4 @@
-@import "_vars.scss";
+@import "vars";
 
 .pointer {
     cursor: pointer;
@@ -36,6 +36,7 @@
     &:hover {
         border-radius: $border-thick;
         border       : $border-thin solid $color-yellow;
+        box-shadow: 0 0 6px 2px;
     }
 }
 

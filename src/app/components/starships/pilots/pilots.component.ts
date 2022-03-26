@@ -12,15 +12,22 @@ export class PilotsComponent {
 
   idPilot: string;
 
+  isImgLoading: boolean;
+
   constructor(
     private starshipsService: StarshipsService, 
   ) { 
     this.pilots = [];
     this.idPilot = "0";
+    this.isImgLoading = true;
   }
 
   getPilotID(url: string): string {
     return this.starshipsService.extractPilotID(url);
+  }
+
+  onImageLoaded() {
+    this.isImgLoading = false;
   }
 
 }

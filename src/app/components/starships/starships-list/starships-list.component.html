@@ -1,17 +1,32 @@
 <app-subpage></app-subpage>
 
-<div class="page-container" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
-    (scrolled)="onScroll()">
-    <ul>
-        <li class="star-hover bg-dark mb-30" *ngFor="let starship of starships">
-            <a [routerLink]="['/starship', getStarshipID(starship.url)]">
-                <div class="fc-silver-off p-20">
-                    <p class="ff-audiowide fs-3 t-upper">{{ starship.name }}</p>
-                    <p class="ff-audiowide fs-2 mt-10">{{ starship.model }}</p>
-                </div>
-            </a>
-        </li>
-    </ul>
+<div class="">
+    <!-- <scroll-container>
+        <scroll-page id="page-1">1</scroll-page>
+        <scroll-page id="page-2">2</scroll-page>
+        <scroll-page id="page-3">3</scroll-page>
+      </scroll-container> -->
+    <ng-container *ngIf="isLoaded else spinner">
+        <div class="page-container" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
+            (scrolled)="onScroll()">
+            <ul>
+                <li class="star-hover fc-white bg-dark mb-30 fade-in-slow" *ngFor="let starship of starships let i = index" id = 'element-{{i}}'>
+                    <a [routerLink]="['/starship', getStarshipID(starship.url)]">
+                        <div class="fc-silver-off p-20">
+                            <p class="ff-audiowide fs-3 t-upper">{{ starship.name }}</p>
+                            <p class="ff-audiowide fs-2 mt-10">{{ starship.model }}</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </ng-container>
+
 </div>
+<ng-template #spinner>
+    <div class="flex-row flex-center spinner-container">
+        <div class="spinner"></div>
+    </div>
+</ng-template>
 
 <app-footer></app-footer>

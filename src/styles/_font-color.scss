@@ -1,4 +1,4 @@
-@import "_vars.scss";
+@import "vars";
 
 // COLOR
 .fc-white {
@@ -45,4 +45,9 @@
         color: #FFFFFF;
         text-shadow: 0px 0px 30px rgba(255, 255, 255, 0.637);
     }
+}
+
+.fc-stellar {
+    // box-shadow: 0 0 6px 2px;
+    text-shadow: 0px 4px 5px $color-red;
 }

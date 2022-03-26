@@ -1,0 +1,60 @@
+$fade-in-slow-duration: 1.5s;
+
+.fade-in-slow {
+    animation        : fadeIn ease $fade-in-slow-duration;
+    -webkit-animation: fadeIn ease $fade-in-slow-duration;
+    -moz-animation   : fadeIn ease $fade-in-slow-duration;
+    -o-animation     : fadeIn ease $fade-in-slow-duration;
+    -ms-animation    : fadeIn ease $fade-in-slow-duration;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@-moz-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

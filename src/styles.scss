@@ -1,47 +1,28 @@
-@import "styles/_background.scss";
-@import "styles/_buttons.scss";
-@import "styles/_component-dialog.scss";
-@import "styles/_component-footer-nav.scss";
-@import "styles/_component-footer.scss";
-@import "styles/_component-navbar-brand.scss";
-@import "styles/_component-navbar-login.scss";
-@import "styles/_component-navbar-tabs.scss";
-@import "styles/_component-navbar.scss";
-@import "styles/_component-pilot.scss";
-@import "styles/_component-starship-info.scss";
-@import "styles/_component-subpage.scss";
-@import "styles/_container.scss";
-@import "styles/_flex.scss";
-@import "styles/_font-color.scss";
-@import "styles/_font-family.scss";
-@import "styles/_font-size.scss";
-@import "styles/_font-style.scss";
-@import "styles/_font-weight.scss";
-@import "styles/_margin-padding.scss";
-@import "styles/_sizing.scss";
-@import "styles/_spinner.scss";
-@import "styles/star-wars-intro.scss";
-@import "styles/_text-utils.scss";
-
-@font-face {
-    font-family: starwars;
-    src        : url("assets/fonts/DINNextW01Regular.otf");
-}
-
-* {
-    list-style     : none;
-    text-decoration: none;
-    box-sizing     : border-box;
-    margin         : 0;
-    padding        : 0;
-    font-family      : "starwars", 'Roboto', sans-serif;
-}
-
-body {
-    background-color: black;
-}
-
-
-// html, body { height: 100%; }
-
-
+@import "styles/zindex.scss";
+@import "styles/animations/animation-glow";
+@import "styles/animations/animations";
+@import "styles/background";
+@import "styles/buttons";
+@import "styles/components/component-dialog";
+@import "styles/components/component-footer-nav";
+@import "styles/components/component-footer";
+@import "styles/components/component-navbar-brand";
+@import "styles/components/component-navbar-login";
+@import "styles/components/component-navbar-tabs";
+@import "styles/components/component-navbar";
+@import "styles/components/component-pilot";
+@import "styles/components/component-starship-info";
+@import "styles/components/component-starships-list";
+@import "styles/components/component-subpage";
+@import "styles/container";
+@import "styles/flex";
+@import "styles/font-color";
+@import "styles/font-family";
+@import "styles/font-size";
+@import "styles/font-style";
+@import "styles/font-weight";
+@import "styles/margin-padding";
+@import "styles/sizing";
+@import "styles/spinner";
+@import "styles/star-wars-intro";
+@import "styles/text-utils";

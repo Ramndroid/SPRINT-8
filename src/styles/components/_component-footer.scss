@@ -1,7 +1,8 @@
-@import "_vars.scss";
+@import "../vars";
 
 .footer {
-    height                : $height-footer;
+    height                : auto;
+    min-height            : 272px;
     background-color      : #000000;
     background-image      : $img-footer;
     background-position   : center top;

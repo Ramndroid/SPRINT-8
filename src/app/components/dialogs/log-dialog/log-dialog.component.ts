@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -25,6 +25,8 @@ export class LogDialogComponent implements OnInit {
   alertNewUserAlreadyExists: boolean;
 
   alertLogUser: number;
+
+  @ViewChild("myinput") myInputField?: ElementRef;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: { newUser: boolean, accesTo: string },

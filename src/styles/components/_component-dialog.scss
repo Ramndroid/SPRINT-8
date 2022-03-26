@@ -1,11 +1,11 @@
-@import "_vars.scss";
+@import "../vars";
 
 .signup {
     max-width: 540px;
 }
 
 .dialog-logo {
-    content: url("../assets/img/sw-login.png");
+    content: url("../../assets/img/sw-login.png");
     background-repeat: no-repeat;
     background-size: 100%;
     width: 70%;
@@ -19,6 +19,12 @@
         border-color    : $color-yellow;
         color           : $color-yellow;
         height          : $btn-height;
+    }
+}
+
+.f-dialog-hover {
+    &:hover {
+        text-decoration: underline;
     }
 }
 

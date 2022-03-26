@@ -8,13 +8,26 @@ import {
     AnimationTriggerMetadata
 } from '@angular/animations';
 
+const side1: string = 'right';
+const side2: string = 'left';
+
+// const side1 = 'left';
+// const side2 = 'right';
+
 export const slider: AnimationTriggerMetadata =
     trigger('routeAnimations', [
-        transition('home => starships', slideTo('right') ),
-        transition('starships => home', slideTo('left') ),
-        transition('starships => starship', slideTo('right') ),
-        transition('starship => starships', slideTo('left') ),
-        transition('starship => home', slideTo('left') )
+
+        transition('home => *', slideTo(side1) ),
+        transition('disneyplus => *', slideTo(side2) ),
+
+        transition('films => home', slideTo(side2) ),
+        transition('films => *', slideTo(side1) ),
+
+        transition('starships => disneyplus', slideTo(side1) ),
+        transition('starships => starship', slideTo(side1) ),
+        transition('starships => *', slideTo(side2) ),
+
+        transition('starship => *', slideTo(side2) )
     ]);
 
 function slideTo(direction: string) {

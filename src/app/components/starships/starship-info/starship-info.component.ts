@@ -19,13 +19,19 @@ export class StarshipInfoComponent implements OnInit, OnDestroy {
 
   pilots: People[];
 
+  isLoaded: boolean;
+
+  isImgLoading: boolean;
+
+  isDescriptionLoading: boolean;
+
+  isPilotsLoading: boolean;
+
   private starship$: Subscription;
 
   private description$: Subscription;
 
-  private pilots$: Subscription;
-
-  isLoaded: boolean;
+  private pilots$: Subscription;  
 
   constructor(
     private starshipsService: StarshipsService,
@@ -36,10 +42,13 @@ export class StarshipInfoComponent implements OnInit, OnDestroy {
     this.starship = this.starshipsService.getEmptyStarship();
     this.description = "";
     this.pilots = [];
+    this.isLoaded = false;
+    this.isImgLoading = true;
+    this.isDescriptionLoading = true;
+    this.isPilotsLoading = true;
     this.starship$ = new Subscription;
     this.description$ = new Subscription;
     this.pilots$ = new Subscription;
-    this.isLoaded = false;
   }
 
   ngOnInit(): void {
@@ -51,13 +60,21 @@ export class StarshipInfoComponent implements OnInit, OnDestroy {
         (starship: Starship) => {
           this.starship = starship;
           this.isLoaded = true;
+          if (this.starship.url != '') {
+            this.suscribeDescriptionAndPilots();
+            console.log("pilots", starship.pilots)
+            console.log("url", starship.url)
+          }
         }
       );
+  }
 
+  private suscribeDescriptionAndPilots(): void {
     this.description$ = this.starshipsService.getDescription$()
       .subscribe(
         (description: string) => {
           this.description = description;
+          this.isDescriptionLoading = false;
         }
       );
 
@@ -65,16 +82,27 @@ export class StarshipInfoComponent implements OnInit, OnDestroy {
       .subscribe(
         (pilots: People[]) => {
           this.pilots = [...pilots];
+          console.log("legth pilots", this.pilots.length);
+          this.isPilotsLoading = false;
         }
       );
   }
 
   ngOnDestroy(): void {
     this.starship$.unsubscribe();
-    this.description$.unsubscribe();
-    this.pilots$.unsubscribe();
-    this.starshipsService.clearPilots();
+    if (this.starship.url != '') {
+      this.description$.unsubscribe();
+      this.pilots$.unsubscribe();
+    }
+
     this.isLoaded = false;
+    this.isImgLoading = true;
+    this.isDescriptionLoading = true;
+    this.isPilotsLoading = true;
+  }
+
+  onImageLoaded() {
+    this.isImgLoading = false;
   }
 
   goBack(): void {

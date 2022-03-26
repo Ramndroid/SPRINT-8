@@ -31,6 +31,8 @@ import { OpeningComponent } from './components/opening/opening.component';
 import { StarshipInfoComponent } from './components/starships/starship-info/starship-info.component';
 import { LogDialogComponent } from './components/dialogs/log-dialog/log-dialog.component';
 import { PilotsComponent } from './components/starships/pilots/pilots.component';
+import { FilmsComponent } from './pages/films/films.component';
+import { DisneyComponent } from './pages/disney/disney.component';
 
 
 @NgModule({
@@ -52,7 +54,9 @@ import { PilotsComponent } from './components/starships/pilots/pilots.component'
     OpeningComponent,
     StarshipInfoComponent,
     LogDialogComponent,
-    PilotsComponent
+    PilotsComponent,
+    FilmsComponent,
+    DisneyComponent
   ],
   imports: [
     BrowserModule,
