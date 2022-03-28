@@ -12,14 +12,14 @@
 }
 
 .btn-star {
-    height     : $btn-height;
-    margin     : $btn-margin;
+    height            : $btn-height;
+    margin            : $btn-margin;
     border-radius     : $border-thick;
     border            : $border-thin solid transparent;
     -webkit-transition: border $animation-duration;
     transition        : border $animation-duration;
-    background-color: transparent;
-    color: $color-yellow;
+    background-color  : transparent;
+    color             : $color-yellow;
 
     &:hover {
         border-radius: $border-thick;
@@ -36,7 +36,7 @@
     &:hover {
         border-radius: $border-thick;
         border       : $border-thin solid $color-yellow;
-        box-shadow: 0 0 6px 2px;
+        box-shadow   : 0 0 6px 2px;
     }
 }
 
@@ -57,7 +57,7 @@
     }
 
     &:disabled {
-        background-color  : $color-grey-solid;
+        background-color: $color-grey-solid;
     }
 }
 
@@ -72,7 +72,7 @@
     transition         : opacity 200ms !important;
     transform          : scale(0.9) !important;
     border             : none !important;
-    border: 2px solid white;
+    border             : 2px solid white;
 
     &:hover {
         opacity           : 1 !important;
@@ -81,4 +81,3 @@
     }
 
 }
-

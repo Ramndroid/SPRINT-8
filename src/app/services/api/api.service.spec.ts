@@ -1,10 +1,10 @@
-import { fakeAsync, inject, TestBed, tick } from '@angular/core/testing';
-
+import { TestBed } from '@angular/core/testing';
 import { ApiService } from './api.service';
-import { HttpClientModule } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { HttpTestingController } from '@angular/common/http/testing';
 import { StarshipsPage } from '../../interfaces/starships-page';
+import { ApiTestingService } from '../../../testing/api-testing-service';
+import { returnFakeStarshipsPage } from '../../../testing/testing-tools';
 
 describe('ApiService', () => {
   let service: ApiService;
@@ -13,7 +13,10 @@ describe('ApiService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [ApiService]
+      providers: [
+        { provide: ApiService, useClass: ApiTestingService }
+      ]
+      
     });
     service = TestBed.inject(ApiService);
     httpMock = TestBed.inject(HttpTestingController);
@@ -25,47 +28,13 @@ describe('ApiService', () => {
 
 
   it('be able to retrieve starships by page', () => {
-    const testStarshipsPage: StarshipsPage = {
-      count: 4,
-      next: "https://api.com/pages/3",
-      previous: "https://api.com/pages/2",
-      results: [
-        {
-          name: "name",
-          model: "model",
-          manufacturer: "manufacturer",
-          cost_in_credits: "cost_in_credits",
-          length: "length",
-          max_atmosphering_speed: "1max_atmosphering_speed",
-          crew: "crew",
-          passengers: "passengers",
-          cargo_capacity: "cargo_capacity",
-          consumables: "consumables",
-          hyperdrive_rating: "hyperdrive_rating",
-          MGLT: "MGLT",
-          starship_class: "starship_class",
-          pilots: [
-            "pilots"
-          ],
-          films: [
-            "films"
-          ],
-          created: "created",
-          edited: "edited",
-          url: "url"
-        }
-      ]
-    };
+    const testStarshipsPage: StarshipsPage = returnFakeStarshipsPage(1);
 
     service.getStarshipsByPage(1).subscribe(starshipPage => {
-      expect(starshipPage).toEqual(testStarshipsPage);
+      expect(starshipPage.count).toEqual(testStarshipsPage.count);
+      console.log(starshipPage);
+      console.log(testStarshipsPage);
     });
-
-    const request = httpMock.expectOne("https://swapi.py4e.com/api/starships/?page=1");
-    expect(request.request.method).toBe('GET');
-    request.flush(testStarshipsPage);
-    
-
   });
 
   afterEach(() => {

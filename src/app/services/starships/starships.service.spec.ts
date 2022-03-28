@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
-
 import { StarshipsService } from './starships.service';
 import { ApiService } from '../api/api.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { HttpTestingController } from '@angular/common/http/testing';
+import { ApiTestingService } from 'src/testing/api-testing-service';
 
 
 describe('StarshipsService', () => {
@@ -14,7 +14,9 @@ describe('StarshipsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [ApiService]
+      providers: [
+        { provide: ApiService, useClass: ApiTestingService }
+      ]
     });
     service = TestBed.inject(StarshipsService);
     apiService = TestBed.inject(ApiService);

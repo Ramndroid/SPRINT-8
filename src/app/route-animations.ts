@@ -11,27 +11,24 @@ import {
 const side1: string = 'right';
 const side2: string = 'left';
 
-// const side1 = 'left';
-// const side2 = 'right';
-
 export const slider: AnimationTriggerMetadata =
     trigger('routeAnimations', [
 
-        transition('home => *', slideTo(side1) ),
-        transition('disneyplus => *', slideTo(side2) ),
+        transition('home => *', slideTo(side1)),
+        transition('disneyplus => *', slideTo(side2)),
 
-        transition('films => home', slideTo(side2) ),
-        transition('films => *', slideTo(side1) ),
+        transition('films => home', slideTo(side2)),
+        transition('films => *', slideTo(side1)),
 
-        transition('starships => disneyplus', slideTo(side1) ),
-        transition('starships => starship', slideTo(side1) ),
-        transition('starships => *', slideTo(side2) ),
+        transition('starships => disneyplus', slideTo(side1)),
+        transition('starships => starship', slideTo(side1)),
+        transition('starships => *', slideTo(side2)),
 
-        transition('starship => *', slideTo(side2) )
+        transition('starship => *', slideTo(side2))
     ]);
 
 function slideTo(direction: string) {
-    const optional = { optional: true};
+    const optional = { optional: true };
     return [
         query(':enter, :leave', [
             style({
@@ -42,7 +39,7 @@ function slideTo(direction: string) {
             }),
         ], optional),
         query(':enter', [
-                style({ [direction]: '-100%' })
+            style({ [direction]: '-100%' })
         ]),
         group([
             query(':leave', [
@@ -55,4 +52,3 @@ function slideTo(direction: string) {
     ];
 }
 
-    

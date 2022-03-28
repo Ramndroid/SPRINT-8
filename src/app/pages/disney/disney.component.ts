@@ -1,15 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-disney',
-  templateUrl: './disney.component.html',
-  styleUrls: ['./disney.component.scss']
+  selector: 'app-disney', template: '<app-disney-content></app-disney-content>'
 })
-export class DisneyComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class DisneyComponent { constructor() { } }

@@ -5,12 +5,12 @@
 }
 
 .dialog-logo {
-    content: url("../../assets/img/sw-login.png");
+    content          : url("../../assets/img/sw-login.png");
     background-repeat: no-repeat;
-    background-size: 100%;
-    width: 70%;
-    height: auto;
-    margin-top: -5px;
+    background-size  : 100%;
+    width            : 70%;
+    height           : auto;
+    margin-top       : -5px;
 }
 
 .signup-input {
@@ -25,6 +25,19 @@
 .f-dialog-hover {
     &:hover {
         text-decoration: underline;
+    }
+}
+
+.custom-dialog-container .mat-dialog-content {
+    padding   : 0px 25px;
+    min-height: 50px;
+    max-height: calc(100vh - 210px);
+    overflow-y: auto;
+}
+
+.my-material-dialog {
+    .mat-dialog-container {
+        background-color: $color-dark;
     }
 }
 

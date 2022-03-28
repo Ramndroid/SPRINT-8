@@ -78,11 +78,10 @@ export class StarshipsService {
     this.starships = [];
     this.page = 1;
     this.starships$.next(this.starships);
-    // this.starships$ = new Subject();
   }
 
 
-  getStarshipsByPage() {
+  getStarshipsByPage(): void {
     if (this.page !== null) {
       this.apiService.getStarshipsByPage(this.page)
         .subscribe(
@@ -98,12 +97,7 @@ export class StarshipsService {
             this.addStarshipToArray(starshipsPage);
           }
         );
-    } 
-    // else {
-    //   // this.page = 1;
-    //   // this.starships = [];
-    //   this.starships$.next(this.starships.reverse());
-    // }
+    }
   }
 
   getStarshipByID(id: string): void {
@@ -123,12 +117,6 @@ export class StarshipsService {
       );
   }
 
-  // onDestroy() {
-  //   this.starships = [];
-  //   this.page = 1;
-  //   // this.starships$.next(this.starships);
-  // }
-
   private extractStarshipPage(url: string): string {
     return this.apiService.extractStarshipPage(url);
   }
@@ -139,17 +127,10 @@ export class StarshipsService {
   }
 
   private appendStarships(starshipsToAppend: Starship[]) {
-    // if (this.page !== null) {
-      for (const starship of starshipsToAppend) {
-        this.starships.push(starship);
-        this.starships$.next(this.starships);
-      }
-    // } else {
-      // this.page = 1;
-      // this.starships = [];
-      // this.getStarshipsByPage();
-      // this.starships$.next(this.starships);
-    // }
+    for (const starship of starshipsToAppend) {
+      this.starships.push(starship);
+      this.starships$.next(this.starships);
+    }
   }
 
   private getFilmsOfStarship(films: string[]): void {

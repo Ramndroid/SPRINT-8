@@ -1,22 +1,23 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-
 import { StarshipsListComponent } from './starships-list.component';
 import { StarshipsService } from '../../../services/starships/starships.service';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { StarshipsTestingService } from 'src/testing/starships-testing-service';
 
 describe('StarshipsListComponent', () => {
   let component: StarshipsListComponent;
   let fixture: ComponentFixture<StarshipsListComponent>;
-  // let service: StarshipsService;
-  // let httpMock: HttpTestingController;
+  let service: StarshipsService;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       declarations: [StarshipsListComponent],
       providers: [
-        StarshipsService
-      ]
+        { provide: StarshipsService, useClass: StarshipsTestingService }
+      ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
       .compileComponents();
   }));
@@ -25,41 +26,16 @@ describe('StarshipsListComponent', () => {
     fixture = TestBed.createComponent(StarshipsListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-    // service = TestBed.inject(StarshipsService);
-    // httpMock = TestBed.inject(HttpTestingController);
+    service = TestBed.inject(StarshipsService);
   });
 
-  it('El componente se debe instanciar', () => {
-    spyOn(component.starshipsService, 'getStarshipsByPage').and.callThrough();
+  it('onScroll loads four starships', () => {
+    spyOn(service, 'getStarshipsByPage').and.callThrough();
+    service.init();
     component.onScroll();
-    console.log(component.starshipsService.getStarships.length)
-    expect(component.starships.length).toBe(0);
+    component.starships = service.getStarships;
+    expect(component.starships.length).toBe(4);
   });
 
-  // it('should create', () => {
-  //   expect(component).toBeTruthy();
-  // });
-
-  // it('the starships array must start with length 0', () => {
-  //   expect(component.starships.length).toBe(0);
-  // });
-
-  // it('the onScroll method should update the starships array', () => {
-  //   // expect(component.starships.length).toBe(0);
-  //   // expect(service.getStarshipsByPage()).toBeDefined;
-  //   // component.starships = service.getStarships;
-  //   // console.log(component.starships.length);
-  //   // expect(component.starships.length).toBe(10);
-  //   expect(fixture.componentInstance.starships.length).toBe(0);
-  //   expect(service.getStarshipsByPage()).toBeDefined;
-  //   fixture.componentInstance.starships = service.getStarships;
-  //   console.log(fixture.componentInstance.starships.length);
-  //   expect(fixture.componentInstance.starships.length).toBe(10);
-  // });
-
-  // it('El componente se debe instanciar', () => {
-  //   expect(component).toBeDefined();
-  //   expect(component).toBeInstanceOf(StarshipsListComponent);
-  // });
 
 });

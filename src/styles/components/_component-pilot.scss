@@ -13,6 +13,7 @@ $pilot-container-max-width: 780px;
     height        : 250px;
     display       : flex;
     flex-direction: row-reverse;
+    overflow-x: hidden;
     border-radius : 0 $border-radius-container $border-radius-container 0;
 }
 
@@ -33,6 +34,7 @@ $pilot-container-max-width: 780px;
 
 .pilot-card-left {
     content: url("../../assets/img/card-left.svg");
+    height: 100%;
 }
 
 

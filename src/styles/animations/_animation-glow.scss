@@ -1,8 +1,8 @@
+@import "../vars";
+
 .anim-glow {
     animation: glow 2s ease-in-out infinite alternate;
 }
-
-
 
 @keyframes glow {
     from {
@@ -10,7 +10,23 @@
     }
 
     to {
-        // text-shadow: 0 0 30px #34b3c1, 0 0 10px #4dbbc7;
         text-shadow: 0 0 30px #34b3c1, 0 0 10px #4dbbc7;
+    }
+}
+
+.coming-glow {
+    font-size : 80px;
+    text-align: center;
+    color     : #fff;
+    animation : comingglow 1s ease-in-out infinite alternate;
+}
+
+@keyframes comingglow {
+    from {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px $color-red, 0 0 20px $color-red, 0 0 25px $color-red, 0 0 30px $color-red, 0 0 35px $color-red;
+    }
+
+    to {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px $color-red, 0 0 40px $color-red, 0 0 50px $color-red, 0 0 60px $color-red, 0 0 70px $color-red;
     }
 }

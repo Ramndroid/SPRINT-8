@@ -15,8 +15,8 @@ export class PilotsComponent {
   isImgLoading: boolean;
 
   constructor(
-    private starshipsService: StarshipsService, 
-  ) { 
+    private starshipsService: StarshipsService,
+  ) {
     this.pilots = [];
     this.idPilot = "0";
     this.isImgLoading = true;

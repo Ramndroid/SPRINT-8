@@ -1,3 +1,4 @@
+import { OverlayContainer } from '@angular/cdk/overlay';
 import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -7,8 +8,7 @@ import { UsersService } from '../../../services/users/users.service';
 
 @Component({
   selector: 'app-log-dialog',
-  templateUrl: './log-dialog.component.html',
-  styleUrls: ['./log-dialog.component.scss']
+  templateUrl: './log-dialog.component.html'
 })
 export class LogDialogComponent implements OnInit {
 
@@ -34,7 +34,8 @@ export class LogDialogComponent implements OnInit {
     private _builderLogIn: FormBuilder,
     private router: Router,
     private dialogRef: MatDialogRef<LogDialogComponent>,
-    private users: UsersService
+    private users: UsersService,
+    private overlay: OverlayContainer
   ) {
     this.title = "";
     this.fieldTextType = false;
@@ -54,6 +55,7 @@ export class LogDialogComponent implements OnInit {
     });
   }
   ngOnInit(): void {
+    this.overlay.getContainerElement().classList.add("my-material-dialog");
     this.isNewUser = this.data.newUser;
     this.setTitle();
   }

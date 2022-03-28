@@ -1,41 +1,43 @@
 @import "../vars";
 
 .legal {
-    width                 : 100%;
-    margin                : 0 auto;
+    width : 100%;
+    margin: 0 auto;
+
     @media (min-width: 770px) {
-        width                 : 80%;
+        width: 80%;
     }
 }
 
 .terms {
-    display               : block;
+    display      : block;
     margin-bottom: 10px;
-    // display               : block;
+
     @media (min-width: 770px) {
-        display               : inline;
+        display: inline;
     }
 }
 
 .terms:not(:first-child) {
-    
+
     &:before {
-        content           : "";
-        font-weight       : $font-bold;
-        padding           : 0;
-        color             : $color-silver;
+        content    : "";
+        font-weight: $font-bold;
+        padding    : 0;
+        color      : $color-silver;
+
         @media (min-width: 770px) {
-            content           : " | ";
-            padding           : 0px 10px;
+            content: " | ";
+            padding: 0px 10px;
         }
     }
-    
+
 }
 
 .terms-link {
-    display               : inline-block;
-    height                : 16px;
-    width                 : auto;
+    display: inline-block;
+    height : 16px;
+    width  : auto;
 
     &:after {
 

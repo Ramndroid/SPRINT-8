@@ -11,31 +11,31 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    data: {animation: 'home'}
+    data: { animation: 'home' }
   },
   {
     path: 'films',
     component: FilmsComponent,
     canActivate: [UserGuard],
-    data: {animation: 'films'}
+    data: { animation: 'films' }
   },
   {
     path: 'starships',
     component: StarshipsComponent,
     canActivate: [UserGuard],
-    data: {animation: 'starships'}
+    data: { animation: 'starships' }
   },
   {
     path: 'starship/:id',
     component: StarshipInfoComponent,
     canActivate: [UserGuard],
-    data: {animation: 'starship'}
+    data: { animation: 'starship' }
   },
   {
     path: 'disneyplus',
     component: DisneyComponent,
     canActivate: [UserGuard],
-    data: {animation: 'disneyplus'}
+    data: { animation: 'disneyplus' }
   },
 ];
 

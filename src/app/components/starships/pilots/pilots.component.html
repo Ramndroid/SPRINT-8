@@ -1,8 +1,8 @@
 <ng-container *ngIf="pilots.length > 0">
     <div class="fade-in-slow">
-        <h2 class="ff-poller f-italic t-upper fc-yellow fs-3 mt-50 pb-4">{{ 
+        <h2 class="ff-poller f-italic t-upper fc-yellow fs-3 mt-50 pb-4">{{
             pilots.length == 1 ? "pilot": "pilots ("+ pilots.length + ")"
-         }}</h2>
+            }}</h2>
         <hr class="hr-yellow pb-50">
         <div *ngFor="let pilot of pilots">
 
@@ -12,11 +12,11 @@
                     <div class="spinner-pilots"></div>
                 </div>
 
-                <img class=""
-                    src="https://starwars-visualguide.com/assets/img/characters/{{getPilotID(pilot.url)}}.jpg"
+                <img class="" src="https://starwars-visualguide.com/assets/img/characters/{{getPilotID(pilot.url)}}.jpg"
                     alt="Starship image"
                     onerror="this.src='https:\/\/starwars-visualguide.com/assets/img/big-placeholder.jpg'"
-                    [hidden]="isImgLoading" (load)="onImageLoaded()" [ngClass]="isImgLoading? '': ['pilot-img-detail', 'fade-in-slow']">
+                    [hidden]="isImgLoading" (load)="onImageLoaded()"
+                    [ngClass]="isImgLoading? '': ['pilot-img-detail', 'fade-in-slow']">
 
                 <div class="pilot-info-container">
                     <div class="ms-20 ps-20 mt-20">
@@ -47,19 +47,23 @@
                                     <h3 class="fc-silver f-italic fs-pilot-card mb-4 ff-poller">{{ pilot.gender }}</h3>
                                 </ng-container>
                                 <ng-container *ngIf="pilot.height != 'unknown'">
-                                    <h3 class="fc-silver f-italic fs-pilot-card mb-4 ff-poller">{{ pilot.height }} cm</h3>
+                                    <h3 class="fc-silver f-italic fs-pilot-card mb-4 ff-poller">{{ pilot.height }} cm
+                                    </h3>
                                 </ng-container>
                                 <ng-container *ngIf="pilot.mass != 'unknown'">
                                     <h3 class="fc-silver fs-pilot-card  ff-poller">{{ pilot.mass }} kg</h3>
                                 </ng-container>
                                 <ng-container *ngIf="pilot.skin_color !== 'unknown'">
-                                    <h3 class="fc-silver f-italic fs-pilot-card mb-4 ff-poller">{{ pilot.skin_color }}</h3>
+                                    <h3 class="fc-silver f-italic fs-pilot-card mb-4 ff-poller">{{ pilot.skin_color }}
+                                    </h3>
                                 </ng-container>
                                 <ng-container *ngIf="pilot.hair_color != 'unknown'">
-                                    <h3 class="fc-silver f-italic fs-pilot-card mb-4 ff-poller">{{ pilot.hair_color }}</h3>
+                                    <h3 class="fc-silver f-italic fs-pilot-card mb-4 ff-poller">{{ pilot.hair_color }}
+                                    </h3>
                                 </ng-container>
                                 <ng-container *ngIf="pilot.eye_color != 'unknown'">
-                                    <h3 class="fc-silver f-italic fs-pilot-card mb-4 ff-poller">{{ pilot.eye_color }}</h3>
+                                    <h3 class="fc-silver f-italic fs-pilot-card mb-4 ff-poller">{{ pilot.eye_color }}
+                                    </h3>
                                 </ng-container>
                             </div>
                         </div>

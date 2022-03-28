@@ -53,7 +53,7 @@ export class UsersService {
   isRegisteredUser(): boolean {
     const user = this.storage.getFromLocalStorage(StorageService.CURRENTUSER);
     if (typeof user === 'string') {
-        return true;
+      return true;
     } else {
       return false;
     }
@@ -72,8 +72,10 @@ export class UsersService {
     if (user === null) {
       this.registeredUsers.push(newUser);
       const saveToLocalStorage = this.storage.saveToLocalStorage(StorageService.USERS, this.registeredUsers);
+      console.log(saveToLocalStorage);
       if (saveToLocalStorage) {
         this.currentUser = newUser;
+        this.saveCurrentUser();
         this.isUserLoged$.next(true);
       } else {
         this.currentUser = null;
@@ -121,6 +123,5 @@ export class UsersService {
     this.currentUser = null;
     this.storage.eraseFromLocalStorage(StorageService.CURRENTUSER);
   }
-
 
 }

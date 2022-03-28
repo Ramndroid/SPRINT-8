@@ -1,19 +1,17 @@
 .nav-bar {
-    position: fixed;
-    top     : 0;
-    z-index : 10;
-    margin  : 0 auto;
-    background-image: url("../../assets/img/stars-nav.jpg");
-    background-repeat: repeat;
+    position           : fixed;
+    top                : 0;
+    z-index            : 10;
+    margin             : 0 auto;
+    background-image   : url("../../assets/img/stars-nav.jpg");
+    background-repeat  : repeat;
     background-position: top;
-    background-size: auto;
-    // background-attachment: fixed;
+    background-size    : auto;
 
     @media (max-width: 899px) {
         background-image: none;
     }
 }
-
 
 
 .nav-bar-social {
@@ -39,7 +37,6 @@
         height: 60px;
     }
 }
-
 
 
 @media (min-width: 1414px) {

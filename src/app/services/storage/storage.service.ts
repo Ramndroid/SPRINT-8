@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class StorageService {
 
-  static USERS            : string = "users";
-  static CURRENTUSER      : string = "user";
-  
+  static USERS: string = "users";
+  static CURRENTUSER: string = "user";
+
   constructor() { }
 
   getFromLocalStorage(key: string): string | null {
@@ -15,7 +15,7 @@ export class StorageService {
     return data;
   }
 
-  saveToLocalStorage(key: string, value: object | string | number | boolean):boolean {
+  saveToLocalStorage(key: string, value: object | string | number | boolean): boolean {
     if (typeof value === "object") {
       window.localStorage.setItem(key, JSON.stringify(value));
       return true;
@@ -31,7 +31,7 @@ export class StorageService {
       return true;
     } else {
       return false;
-    }   
+    }
   }
 
   eraseFromLocalStorage(key: string) {

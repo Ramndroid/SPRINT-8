@@ -16,6 +16,7 @@ interface OpeningCrawl {
 export class OpeningComponent {
 
   intro: string;
+
   indexEpisode: number = 0;
 
   @ViewChild('crawlmain')

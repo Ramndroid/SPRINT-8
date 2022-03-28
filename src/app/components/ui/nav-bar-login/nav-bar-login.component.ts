@@ -41,9 +41,7 @@ export class NavBarLoginComponent implements OnInit, OnDestroy {
           }
         }
       );
-
     this.loadSavedUser();
-
   }
 
   private loadSavedUser(): void {
@@ -56,7 +54,6 @@ export class NavBarLoginComponent implements OnInit, OnDestroy {
         password: password
       }
       this.users.log(users);
-    } else {
     }
   }
 
@@ -75,12 +72,13 @@ export class NavBarLoginComponent implements OnInit, OnDestroy {
 
   private openDialog(isNewUser: boolean) {
     this.dialog.open(LogDialogComponent, {
-      data: { newUser: isNewUser }
+      data: { newUser: isNewUser },
+      panelClass: 'custom-dialog-container'
     });
   }
 
   alertUserInfo() {
-    this.dialog.open(UserDialogComponent);
+    this.dialog.open(UserDialogComponent, {panelClass: ['custom-dialog-container']});
   }
 
   logOut() {

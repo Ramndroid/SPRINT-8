@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-// import { UserDialogComponent } from './components/dialogs/user-dialog/user-dialog.component';
 import { UsersService } from './services/users/users.service';
 import { LogDialogComponent } from './components/dialogs/log-dialog/log-dialog.component';
 
@@ -32,7 +31,7 @@ export class UserGuard implements CanActivate {
   private redirect(flag: boolean, state: RouterStateSnapshot): void {
     if (!flag) {
       this.router.navigate(['/']);
-      this.dialog.open(LogDialogComponent, { data: { newUser: false, accesTo:state.url } });
+      this.dialog.open(LogDialogComponent, { data: { newUser: false, accesTo: state.url } });
     }
   }
 

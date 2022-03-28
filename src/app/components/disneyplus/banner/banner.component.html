@@ -1,0 +1,82 @@
+<div class="csslider1 autoplay cs_handle" style="width:100%; height: 100%;">
+  <input name="cs_anchor1" id="cs_slide1_0" type="radio" class="cs_anchor slide">
+  <input name="cs_anchor1" id="cs_slide1_1" type="radio" class="cs_anchor slide">
+  <input name="cs_anchor1" id="cs_slide1_2" type="radio" class="cs_anchor slide">
+  <input name="cs_anchor1" id="cs_play1" type="radio" class="cs_anchor" checked="">
+  <input name="cs_anchor1" id="cs_pause1_0" type="radio" class="cs_anchor pause">
+  <input name="cs_anchor1" id="cs_pause1_1" type="radio" class="cs_anchor pause">
+  <input name="cs_anchor1" id="cs_pause1_2" type="radio" class="cs_anchor pause">
+
+  <ul>
+    <div class="w100 banner-carousel">
+    </div>
+    <ng-container *ngFor="let banner of banners let i = index">
+
+      <li class="num{{ i }}">
+
+        <div class="banner-container">
+
+          <img [src]='innerWidth > 1023 ? banner.imglarge: banner.imgsmall' class="w100" alt="">
+
+          <div class="banner-info" [ngClass]="banner.infoPosition === 'left' ? 'banner-left' : 'banner-right' ">
+
+            <ng-container *ngIf="banner.logo !== ''">
+
+              <img [src]='banner.logo' class="banner-logo" alt="" [style.width.px]="banner.logoSize">
+
+            </ng-container>
+
+            <h2 class="fc-white f-italic fs-2 t-capitalize mb-30">{{ banner.title }}</h2>
+
+            <h2 class="fc-white f-thin fs-3 mx-10">{{ banner.text }}</h2>
+
+            <div class="banner-btns-container">
+
+              <a class="banner-btn-blue" href="{{ banner.btnStreamLink }}" target="_blank">stream now</a>
+
+              <ng-container *ngIf="banner.btnExtraText !== ''">
+
+                <a class="banner-btn-extra" href="{{ banner.btnExtraLink }}" target="_blank">{{
+                  banner.btnExtraText }}</a>
+
+              </ng-container>
+
+            </div>
+          </div>
+        </div>
+
+      </li>
+
+    </ng-container>
+
+  </ul>
+
+  <div class="cs_play_pause">
+    <label class="cs_play" for="cs_play1">Play</label>
+  </div>
+
+  <div class="cs_arrowprev">
+    <label class="num0" for="cs_slide1_0"><span><i></i></span></label>
+    <label class="num1" for="cs_slide1_1"><span><i></i></span></label>
+    <label class="num2" for="cs_slide1_2"><span><i></i></span></label>
+  </div>
+
+  <div class="cs_arrownext">
+    <label class="num0" for="cs_slide1_0"><span><i></i></span></label>
+    <label class="num1" for="cs_slide1_1"><span><i></i></span></label>
+    <label class="num2" for="cs_slide1_2"><span><i></i></span></label>
+  </div>
+
+  <div class="cs_bullets">
+    <label class="num0" for="cs_slide1_0">
+      <span class="cs_point"></span>
+    </label>
+    <label class="num1" for="cs_slide1_1">
+      <span class="cs_point"></span>
+    </label>
+    <label class="num2" for="cs_slide1_2">
+      <span class="cs_point"></span>
+    </label>
+
+  </div>
+</div>

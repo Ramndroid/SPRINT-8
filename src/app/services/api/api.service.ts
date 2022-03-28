@@ -10,7 +10,7 @@ import { People } from '../../interfaces/people';
   providedIn: 'root'
 })
 export class ApiService {
-  
+
   private mainURL: string = 'https://swapi.dev/api';
 
   private mainURLAlt: string = 'https://swapi.py4e.com/api';
@@ -63,7 +63,7 @@ export class ApiService {
 
   extractPilotID(url: string): string {
     let regex: RegExp;
-    
+
     if (this.isUsingMainURL)
       regex = /https\:\/\/swapi\.dev\/api\/people\/(\d+)\//;
     else
@@ -84,11 +84,11 @@ export class ApiService {
   }
 
   getFilm(url: string): Observable<Film> {
-    return this.http.get<Film>(url);    
+    return this.http.get<Film>(url);
   }
 
   getPeopleInfo(url: string): Observable<People> {
-    return this.http.get<People>(url);    
+    return this.http.get<People>(url);
   }
 
 }

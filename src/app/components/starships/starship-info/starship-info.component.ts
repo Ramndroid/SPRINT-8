@@ -31,7 +31,7 @@ export class StarshipInfoComponent implements OnInit, OnDestroy {
 
   private description$: Subscription;
 
-  private pilots$: Subscription;  
+  private pilots$: Subscription;
 
   constructor(
     private starshipsService: StarshipsService,
@@ -61,15 +61,15 @@ export class StarshipInfoComponent implements OnInit, OnDestroy {
           this.starship = starship;
           this.isLoaded = true;
           if (this.starship.url != '') {
-            this.suscribeDescriptionAndPilots();
-            console.log("pilots", starship.pilots)
-            console.log("url", starship.url)
+            this.subscribeDescription();
+            this.subscribePilots();
           }
         }
       );
   }
 
-  private suscribeDescriptionAndPilots(): void {
+  // public for karma test
+  subscribeDescription(): void {
     this.description$ = this.starshipsService.getDescription$()
       .subscribe(
         (description: string) => {
@@ -77,12 +77,14 @@ export class StarshipInfoComponent implements OnInit, OnDestroy {
           this.isDescriptionLoading = false;
         }
       );
+  }
 
+  // public for karma test
+  subscribePilots(): void {
     this.pilots$ = this.starshipsService.getPilots$()
       .subscribe(
         (pilots: People[]) => {
           this.pilots = [...pilots];
-          console.log("legth pilots", this.pilots.length);
           this.isPilotsLoading = false;
         }
       );

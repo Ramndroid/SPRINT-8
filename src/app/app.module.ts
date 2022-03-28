@@ -33,6 +33,10 @@ import { LogDialogComponent } from './components/dialogs/log-dialog/log-dialog.c
 import { PilotsComponent } from './components/starships/pilots/pilots.component';
 import { FilmsComponent } from './pages/films/films.component';
 import { DisneyComponent } from './pages/disney/disney.component';
+import { BannerComponent } from './components/disneyplus/banner/banner.component';
+import { DisneyContentComponent } from './components/disneyplus/disney-content/disney-content.component';
+import { FilmsListComponent } from './components/films/films-list/films-list.component';
+import { FilmInfoComponent } from './components/films/film-info/film-info.component';
 
 
 @NgModule({
@@ -56,7 +60,11 @@ import { DisneyComponent } from './pages/disney/disney.component';
     LogDialogComponent,
     PilotsComponent,
     FilmsComponent,
-    DisneyComponent
+    DisneyComponent,
+    BannerComponent,
+    DisneyContentComponent,
+    FilmsListComponent,
+    FilmInfoComponent
   ],
   imports: [
     BrowserModule,
